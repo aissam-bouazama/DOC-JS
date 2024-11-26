@@ -7,8 +7,9 @@
     - [Exemple](#exemple)
   - [Característiques de `WeakMap`](#característiques-de-weakmap)
   - [Exemple](#exemple-1)
+  - [2.`Set`](#set)
   - [Característiques de `Set`](#característiques-de-set)
-  - [Mètodes importants](#mètodes-importants-1)
+    - [Mètodes importants](#mètodes-importants-1)
   - [Característiques de `WeakSet`](#característiques-de-weakset)
     - [Exemple](#exemple-2)
 - [Symbol() en JavaScript:](#symbol-en-javascript)
@@ -16,10 +17,17 @@
   - [Exemples](#exemples)
 - [propietats dínamiques](#propietats-dínamiques)
   - [this en javascript](#this-en-javascript)
-  - [CALL](#call)
+- [CALL , Apply i Bind](#bind-apply-i-call-en-javascript)
+  - [Call](#call)
   - [Apply](#apply)
   - [bind](#bind)
-  - [JSON EN JAVASCRIPT](#bind)
+- [JSON EN JAVASCRIPT](#json-en-javascript)
+- [CLASSES EN JS](#classes-en-js)
+    - [Classes i herrència](#classes-i-herrència)
+      - [exemples Classes i herrència](#exemple-classes-i-herrència)
+    - [Herència amb Prototipus](#herència-amb-prototipus)
+- [Prototipus en JS](#prototipus-en-js)
+- [Proxies](#proxy)
 
 <br><br><br><br>
 
@@ -421,11 +429,6 @@ pepe.fersoroll();
 
 ---
 
-<br>
-
-<p style="font-size=20px;">
-<b>
-
 [☝️ Retorn a l'index](#desenvolupament-daplicacions-web-en-entorn-client-uf2)
 </b></p>
 
@@ -499,14 +502,7 @@ A diferència dels mètodes call i apply, bind no invocarà la funció directame
 JavaScript Object Notation (JSON) és un format basat en text estàndard per representar dades estructurades a la sintaxi d'objectes de JavaScript. És comunament utilitzat per transmetre dades en aplicacions web (per exemple: enviar algunes dades des del servidor al client, així aquestes dades poden ser mostrades en pàgines web, o viceversa). S'enfrontarà sovint amb ell, així que aquest article li lliura tot el que necessita saber per treballar amb JSON utilitzant JavaScript, incloent l'anàlisi JSON per accedir a les dades al seu interior, i com crear JSON.
 
 ```javascript
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+
     <script>
       const json = {
         cadena: "aissam",
@@ -547,9 +543,270 @@ JavaScript Object Notation (JSON) és un format basat en text estàndard per rep
       console.log("***************JSON  parse exemples*******************");
       console.log(JSON.parse(JSON.stringify(json)));
     </script>
-  </body>
-</html>
+  
 
 ```
+
+
+---
+
+<br>
+
+
+
+[☝️ Retorn a l'index](#desenvolupament-daplicacions-web-en-entorn-client-uf2)
+
+
+<br>
+
+---
+
+# CLASSES EN JS:
+
+## Classes i herrència:
+
+_**Què és Herència?**_   
+L'herència permet crear una nova classe basada en una classe existent. La nova classe hereta els mètodes i propietats de la classe base, però també pot afegir les seves pròpies.
+
+```javascript
+  class Animal {
+        constructor(nom, genere) {
+          this.nom = nom;
+          this.genere = genere;
+        }
+
+        sonar() {
+          console.log("faig soroll..");
+        }
+        saludar() {
+          console.log("hola que tal");
+        }
+      }
+
+      console.log(Animal);
+
+      class Gos extends Animal {
+        constructor(nom, genere, pes) {
+          super(nom, genere);
+          this.pes = pes;
+        }
+        sonar() {
+          console.log("guau guau");
+        }
+        //métode de classe
+        static info() {
+          console.log("fill del pancho colate i la gosseta terry");
+        }
+      }
+      const gosset2 = new Gos("pancho", "masculí", 12);
+      console.log(gosset2);
+      //s'ha de utilitzar amb el nom de la classe
+      Gos.info();
+      Gos.info();
+  ```
+## exemple Classes i herrència:
+  `Animal`   
+  `constructor(nom, genere):` Aquest és el mètode que s'executa quan es crea un nou objecte de la classe Animal. Assigna les propietats nom i genere a l'objecte.  
+`Mètodes de la classe:`  
+`sonar():` Un mètode que imprimeix "faig soroll.." a la consola.  
+`saludar():` Un mètode que imprimeix "hola que tal" a la consola.
+
+**`Herència amb extends:`**   
+**`class Gos extends Animal`** indica que Gos hereta totes les propietats i mètodes d'Animal.
+Això significa que Gos tindrà accés a sonar, saludar i qualsevol altra funcionalitat d'Animal.   
+**`Mètode constructor:**`**  
+**constructor(nom, genere, pes)**   
+ defineix un constructor que afegeix una propietat nova (pes) a més de les propietats heretades (nom i genere).
+super(nom, genere) crida el constructor de la classe base (Animal) per inicialitzar les propietats heretades.   
+`Sobreescriptura de Mètodes:`  
+La classe Gos redefineix el mètode sonar(). Quan s'invoca sonar en un objecte Gos, s'executa el nou comportament ("guau guau") en lloc del comportament original ("faig soroll..").
+Mètode Estàtic info:   
+**`static info()`**   
+és un mètode de classe, no un mètode d'instància. Això vol dir que es pot cridar directament des de la classe (Gos.info()), no des d'un objecte (gosset2).
+
+---
+
+<br>
+
+
+
+[☝️ Retorn a l'index](#desenvolupament-daplicacions-web-en-entorn-client-uf2)
+
+
+<br>
+
+---
+## Herència amb Prototipus:
+L'herència amb prototipus permet que un constructor (o funció) hereti les propietats i mètodes d'un altre prototip. Això es fa utilitzant.
+
+Exemple
+```javascript
+function Animal(nom, genere) {
+        //Atributs
+        this.nom = nom;
+        this.genere = genere;
+
+        //Métodes
+        /*this.sonar = function () {
+                console.log("estic fent soroll...");
+              };
+              this.saludar = function () {
+                console.log(`Hola el meu nom és ${this.nom}`);
+              };*/
+      }
+      //instanciar
+      //metode prototipus
+      Animal.prototype.sonar = function () {
+        console.log("estic fent soroll");
+      };
+      Animal.prototype.saludar = function () {
+        console.log(`Hola el meu nom és ${this.nom}`);
+      };
+      function Gos(nom, genere, pes) {
+        //difinir la classe pare
+        this.super = Animal;
+        this.super(nom, genere);
+        this.pes = pes;
+      }
+      //Cal especificar que herite de quina classe que herite en el nostre cas Animal
+      Gos.prototype = new Animal();
+      //delarem els constructor
+      Gos.prototype.constructor = Gos;
+
+      //Sobreescriure el métode sonar(
+      Gos.prototype.sonar = function () {
+        console.log("estic Bordant.....");
+      };
+
+      //afegir un nou métode al prototipus Gos
+      Gos.prototype.bordar = function () {
+        console.log("Guau Guau!");
+      };
+
+      //instancia un gos
+      const gosset = new Gos("comtu", "masculi", 12),
+        animalet = new Animal("animalet", "femella");
+
+      console.log(gosset);
+      console.log(animalet);
+      gosset.sonar();
+      gosset.bordar();
+      gosset.saludar();
+
+      animalet.sonar();
+      animalet.saludar();
+
+      console.log(gosset.pes, gosset.nom, gosset.genere);
+      console.log(animalet.pes, animalet.nom, animalet.genere);
+
+
+```
+En aquest exemple:
+
+`Animal` és la classe base.
+`Gos` hereta el prototip d'Animal .
+
+---
+
+<br>
+
+
+
+[☝️ Retorn a l'index](#desenvolupament-daplicacions-web-en-entorn-client-uf2)
+
+
+<br>
+
+---
+# Prototipus en JS:
+
+Els prototips són un mecanisme mitjançant el qual els objectes en JavaScript hereten característiques entre si. En aquest article, explicarem com funcionen els prototips i també com es poden fer servir les propietats d'aquests per afegir mètodes als contructors existents.
+
+Exemple 
+```javascript
+function Persona(nom) {
+    this.nom = nom;
+}
+
+// Afegim un mètode al prototip de Persona
+Persona.prototype.saludar = function () {
+    console.log(`Hola, el meu nom és ${this.nom}`);
+};
+
+const persona1 = new Persona("Aissam");
+persona1.saludar(); // Hola, el meu nom és Aissam
+
+```
+
+---
+
+<br>
+
+
+
+[☝️ Retorn a l'index](#desenvolupament-daplicacions-web-en-entorn-client-uf2)
+
+
+<br>
+
+---
+# Proxy
+
+Un `Proxy` en JavaScript permet interceptar i redefinir operacions fonamentals en objectes, com la lectura, l'escriptura o l'eliminació de propietats. Això és útil per controlar el comportament d'un objecte d'una manera personalitzada.
+
+
+Exemple 
+```javascript
+ //proxy:permet crear un objecte basata en altre Objecte existent.
+
+      const persona = {
+        nom: "",
+        cognoms: "",
+        edat: 0,
+      };
+      //necessitem un objecte gestor amb un mètode set per gestionar les propietats de l'objecte persona
+      const gestor = {
+        set(obj, prop, valor) {
+          obj[prop] = valor;
+          return true;
+        },
+      };
+      //instanciarem un proxy que vinculara l'objecte persona persona i el gestor
+      const personaJoan = new Proxy(persona, gestor);
+      personaJoan.nom = "Joan";
+      console.log(personaJoan);
+      console.log(persona);
+      //el gestor en aquest cas es com a controlador de  les valors que entriem al objecte
+      const gestor2 = {
+        set(obj, prop, valor) {
+          if (prop === "nom" && valor === "lluis") {
+            console.error("el LLuis no està permès");
+            return true;
+          }
+          obj[prop] = valor;
+          return true;
+        },
+      };
+
+      const personalluis = new Proxy(persona, gestor2);
+      personalluis.nom = "pepe";
+      personalluis.nom = "lluis";
+      console.log(personalluis);
+      console.log(persona);
+```
+
+---
+
+<br>
+
+
+
+[☝️ Retorn a l'index](#desenvolupament-daplicacions-web-en-entorn-client-uf2)
+
+
+<br>
+
+---
+
 
 

@@ -609,9 +609,9 @@ L'herència permet crear una nova classe basada en una classe existent. La nova 
   **constructor(nom, genere):** Aquest és el mètode que s'executa quan es crea un nou objecte de la classe Animal. Assigna les propietats nom i genere a l'objecte.  
 `Mètodes de la classe:`  
 **sonar():** Un mètode que imprimeix "faig soroll.." a la consola.  
-**saludar():** Un mètode que imprimeix "hola que tal" a la consola.
+**saludar():** Un mètode que imprimeix "hola que tal" a la consola.  
 **`Herència amb extends:`**   
-**`class Gos extends Animal`** indica que Gos hereta totes les propietats i mètodes d'Animal.
+**class Gos extends Animal** indica que Gos hereta totes les propietats i mètodes d'Animal.
 Això significa que Gos tindrà accés a sonar, saludar i qualsevol altra funcionalitat d'Animal.   
 **`Mètode constructor:**`**  
 **constructor(nom, genere, pes)**   

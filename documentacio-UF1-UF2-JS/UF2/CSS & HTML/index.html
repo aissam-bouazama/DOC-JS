@@ -21,6 +21,7 @@
       <a href="index.html#pseudoelements">Les pseudoelements</a><br>
             <a href="index.html#agrupar-selectors">Com agrupar selectors</a><br>
             <a href="index.html#Algorithm-CSS">Algorithm CSS</a><br>
+            <a href="index.html#model-de-caixa">El Model de caixa</a><br>
     <hr>
    
     <article id="selectors-basics">
@@ -298,11 +299,36 @@
         <li>Personalitzacio de l'usuari</li>
         <li>estils d'autor</li>
       </ol>
-      <p><b>User Agent</b></p>
+      <!--els estils que aplica el navegado per defecte-->
+      <p><b>L'especificitat</b></p>
+      <ol>
+        <li>per cada etiqueta o pseudoelements suma 1 al 1r dígit  0,0,0,1</li>
+        <li>  per cada Classes,atributs o pseudoclasses, sum 1 al 2n 0,0,1,0</li>
+        <li> per cada Identificador ,suma 1 al 3r dígit 0,1,0,0</li>
+        <li>Per cada Estils en línia ,suma  1 al 4t digit 1,0,0,0</li>
+        <li>!Importat(trenca L'especificitat i s'aplica)</li>
+      </ol>
+        <blockquote id="cita" class="cita" style="background-color: yellow;">
+          Cuando el grajo vuela a bajo hace un frio del carajo
+          <strong><cite>BlaBla Car</cite></strong>
+        </blockquote>
+    <h3>Herència</h3>
+    <p>no tots els estils s'hereten! els borders no 'hereten, tampoc s'herete el background-color</p>
+    <p>si volem heretar d'un element que no hereta l'estil ens cal afegir el valor <b>inherit</b> si volem Als elements que hereten podem evitar l'herencia o bé assignan un valor a la propietat o bé assignan el valor <b> initial</b></p>
        <a href="index.html#index-css"> ☝🏼tornar-index</a>
     </article>
 
-<br><br><br><br><br>
+    <hr>
+    <article id="model-de-caixa">
+      <h2>Model de Caixa</h2>
+      <p>És la forma en que CSS interpreta les tiquetes HTML. Per a CSS cada una de les etiquetes html és una caixa</p>
+       <a href="index.html#index-css"> ☝🏼tornar-index</a>
+    </article>
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+    <br><br><br><br><br>
     <hr>
     <article id="Algorithm-CSS">
       <h2>Algorithm CSS</h2>

@@ -272,3 +272,25 @@ textarea {
   width: 300px;
   border: medium dotted yellow;
 }
+
+/*especifitat algorithm CSS*/
+#cita {
+  background-color: rgb(162, 162, 250);
+}
+
+blockquote {
+  background-color: bisque;
+}
+.cita {
+  background-color: aqua !important;
+}
+
+blockquote.cita {
+  background-color: red;
+}
+
+/*herència*/
+/**initial és del navegador**/
+cite {
+  background-color: green;
+}

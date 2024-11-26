@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //prop dinamiques
+      let aleatori = Math.round(Math.random() * 100 + 5);
+      const objUsuari = {
+        nom: "pepe",
+        [`id_${aleatori}`]: "valor aleatori",
+      };
+      console.log(objUsuari);
+
+      const usuaris = ["Aissam", "gemma", "Carlos", "rosa"];
+      usuaris.forEach((ele, index) => {
+        objUsuari[`id_${index}`] = ele;
+      });
+      console.log(objUsuari);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objectes</title>
+  </head>
+  <body>
+    <p>Hola</p>
+    <script>
+      /*els Objectes*/
+      //{} aquest es un objecte
+      const objecte1 = {};
+      console.log(objecte1);
+      //declarar i instanciar un objecte
+      const objecte2 = new Object();
+      console.log(objecte2);
+      //donem valors a un objecte
+      //per utilitzar els variables al mateix objecte hi ha d'utilitzar la paraula reservada this per fer la referncia al
+      //objecte mateix
+      const objecte3 = {
+        nom: "Aissam",
+        cognoms: "Bouazama",
+        edat: 19,
+        hobbys: ["Futbòl", "saltar", "cridar"],
+        contactes: {
+          email: "abouzama@almata.cat",
+          twitter: "@Aissam",
+          mobil: 452154822,
+        },
+        saludar: function () {
+          console.log("hola que tal");
+        },
+        saludar2: function () {
+          console.log(`hola ${this.nom} tinc ${this.edat} anys.`);
+        },
+      };
+      // Accés als atributs i metodes
+      console.log(objecte3["nom"]);
+      console.log(objecte3.hobbys[1]);
+      console.log(objecte3.contactes.mobil);
+
+      objecte3.saludar();
+      objecte3.saludar2();
+      //per saber els atributs de el Objecte
+      console.log(Object.keys(objecte3));
+      console.log(Object.values(objecte3));
+      //aquest es per probar si té algun propietat al objecte
+      console.log(objecte3.hasOwnProperty("nom"));
+
+      //Operadors
+      //exemples
+      // a = a+1; ->  a += 1;
+      // a = a*5; -> a *= 5
+      //== Aquesta no lo importa el tipus deles variables
+      console.log("Operador ==");
+      console.log(7 == 7);
+      console.log(7 == "7");
+      console.log(0 == false);
+      //=== aquest es compara també el tipus
+      console.log("Operador ===");
+      console.log(7 === 7);
+      console.log(7 === "7");
+      console.log(0 === false);
+      //a++,a-- VS ++a, --a
+      //Compte no utilizar el a++ o a-- als parametres
+      let op2 = 2;
+      // imprime el primer el valor despres fa la operaio per aixo surt 2 al console.log
+      //i el ++op2 hace el primero la operacion i lo assigna al op2 i imprimira 3
+      console.log(op2++);
+      console.log(op2);
+
+      //! es per negar
+      console.log(!true);
+
+      //Condicionals
+      /*
+      if(exp_booleana){
+        accions si cert
+      }else{
+        accions si fals 
+      }
+      estructures alternatives 
+      */
+      let edat = 18;
+      if (edat >= 18) {
+        console.log("es major d'edat");
+      } else console.log("menor d'edat");
+
+      /*
+      deix'm dormir -> entre 0h i 5h 
+      bona dia      -> entre 6h i 13h
+      bona tarda    -> entre 14h i 20h
+      bona nit      -> entre 20h i 23h */
+      let hora = 8;
+
+      if (hora >= 0 && hora <= 5) {
+        console.log("deix'm dormir");
+      } else if (hora >= 6 && hora <= 13) {
+        console.log("Bon dia");
+      } else if (hora >= 14 && hora <= 20) {
+        console.log("bona tarda");
+      } else if (hora >= 20 && hora <= 23) {
+        console.log("Bona nit");
+      } else {
+        console.log("és un bug ja l'arreglaré o no existeix l'hora");
+      }
+
+      //operador ternari, immediate if
+      // () ? cert:fals;
+
+      let diaNit = hora >= 7 && hora <= 20 ? "és de dia" : "és de nit";
+      console.log(diaNit);
+
+      //operador condicional casos
+      let opcionMenu = 2;
+      switch (opcionMenu) {
+        case 1:
+          console.log("Alta");
+          break;
+        case 2:
+          console.log("Baixa");
+          break;
+        default:
+          console.log("Aquesta opció no existeix");
+      }
+      // estructures iteratives ,bucle,cicles repetecions
+      /*
+      while
+      for
+      do..while
+      forEach
+      for..in
+      for..of
+      
+      */
+      //while
+      let comptador = 0;
+      console.log("------while-----------");
+      while (comptador < 10) {
+        console.log(comptador);
+        comptador++;
+      }
+      console.log(comptador);
+
+      //do .. while
+      // es fa el do while quan es fa siempre una vegada ala menys
+      console.log("------ do while -----------");
+      do {
+        console.log(comptador);
+        comptador--;
+      } while (comptador > 0);
+      console.log(comptador);
+      //for (per )
+      console.log("------ per -----------");
+      let a;
+      for (a = 1; a < 10; a++) {
+        console.log(a);
+      }
+      console.log(a);
+      //foe each
+
+      let numeros = [22, 24, 35, 64, 77, 88];
+
+      numeros.forEach(function (element) {
+        console.log(element);
+      });
+      // for in
+      //qualsevol elements objecte
+      console.log("---------------for in-------------");
+      let persona = {
+        nom: "joan",
+        cognoms: "jiminez",
+        edat: 19,
+      };
+      for (const propietat in persona) {
+        console.log(propietat);
+      }
+      for (const propietat in persona) {
+        console.log(`propietat : ${propietat}, valor: ${persona[propietat]}`);
+      }
+
+      // for of
+      console.log("---------------for of-------------");
+      //podem reecorrer qualsevol estructura iterable
+      for (const element of numeros) {
+        console.log(element);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function validaremail(cadena) {
+        let expReg = /\w+@\w+\.\w+/gi;
+
+        if (cadena === undefined) {
+          return console.error("el parametre no ésta posat (no ésta definit)");
+        } else if (typeof cadena !== "string") {
+          return console.warn("el parametre hi ha de ser de tipus cadena");
+        } else if (cadena.length <= 0) {
+          return console.warn("el email ésta buid");
+        } else if (expReg.test(cadena)) {
+          console.log("el correu électroni és valid");
+          return true;
+        } else {
+          console.error("el correu électronic no és valid");
+          return false;
+        }
+      }
+      validaremail("abouza@almata.cat");
+      validaremail("");
+      validaremail();
+      validaremail("aissam");
+
+      function mitjana(array) {
+        if (!array instanceof Array) {
+          console.error("el paramétre hi ha de ser un array");
+        } else if (array.length === 1) {
+          console.warn("has de posar més de un element al array");
+        } else {
+          let longitufarr = array.length;
+          let resultat = 0;
+          array.forEach((element) => {
+            if (typeof element !== "number") return false;
+            resultat = resultat + element;
+          });
+          resultat = resultat / longitufarr;
+          console.log(resultat);
+          return resultat;
+        }
+      }
+      mitjana([5, 6, 8, 5]);
+      mitjana([1]);
+      //parámétre de undifined falta la rebostesa
+      //es capicua
+      function rangAleatori(min, max) {
+        if (typeof min !== "number" || typeof max !== "number") {
+          console.error("els primers hi de ser els dos parametres numeros");
+        } else if (!min || !max) {
+          console.error("els do preimer n'hi ha de ser buid");
+        } else {
+          num = Math.random * max + min;
+          return num;
+        }
+      }
+      //es primer
+
+      function esprimer(num) {
+        let n = Math.round(num / 2);
+        console.log(n);
+        let i = 2;
+        while (i <= n) {
+          if (num % i == 0) {
+            console.log("no és primer");
+            return false;
+          }
+          i++;
+        }
+        if (i > n) {
+          console.log("és primer");
+          return true;
+        }
+      }
+      esprimer(50);
+      esprimer(97);
+    </script>
+  </body>
+</html>

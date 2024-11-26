@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--esils externs-->
+    <link rel="stylesheet" href="CSS/estils.css" />
+    <title>introducció al CSS</title>
+    <style>
+      /*estils interns*/
+    </style>
+  </head>
+  <body>
+    <!-- estils en linia
+    <h1 style="background-color: red">introducció al CSS</h1>-->
+    <h1 id="index-css">introducció al CSS</h1>
+    <a href="index.html#selectors-basics">selectors basics</a><br>
+     <a href="index.html#selectors-avançats">selectors Avançats</a><br>
+     <a href="index.html#selector-universal">selector Universal</a><br>
+     <a href="index.html#pseudoclasses">Les pseudoclasses</a><br>
+      <a href="index.html#pseudoelements">Les pseudoelements</a><br>
+            <a href="index.html#agrupar-selectors">Com agrupar selectors</a><br>
+            <a href="index.html#Algorithm-CSS">Algorithm CSS</a><br>
+    <hr>
+   
+    <article id="selectors-basics">
+      <h2>selectors basics</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+        sit aliquam atque totam illo culpa a quisquam quo ratione quis
+        perspiciatis impedit dolores magni, consequuntur qui amet officiis alias
+        nihil! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
+        quia aliquid dolores explicabo? In reiciendis, tenetur blanditiis aut
+        laboriosam sapiente. Amet non numquam quia perspiciatis veritatis
+        tempore dignissimos optio voluptates.
+      </p>
+      <p id="paragraf-dos" class="text-20">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, voluptatibus id accusantium aspernatur eius ducimus quos sint vitae, autem voluptatum fugiat iste hic, quisquam omnis quo nihil qui. Quaerat, provident.
+      </p>
+      <p class="paragraf-tres text-20">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium labore recusandae expedita odio quod cupiditate totam veritatis, non nam. Quasi voluptatum, dolores rem ipsum autem sunt sit perspiciatis. Ratione, quae?Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fugit sit, dicta possimus ex eaque maiores ducimus nemo inventore tempore vel eligendi numquam dolore, cum necessitatibus accusantium illum, nisi ipsum!
+      </p>
+      <a href="index.html#index-css"> ☝🏼tornar-index</a>
+   
+
+     
+
+    <hr>
+    <article id="selectors-avançats">
+      <h2>selectors avançats</h2>
+      <h3>Selectors fills - directes (>): estan al primer nivell, Immeditament deprés de l'element seleccionats</h3>
+
+      <ul class="fills-directes">
+        <li><b>Primavera</b></li>
+        <li><b>estiu</b></li> 
+        <li><b>tardor</b></li>
+        <li><b>hivern</b></li>
+      </ul>
+
+      <h3>Selectors fills - descendents ( ) (l'operador és el l'espai en blanc) son els elements que estan per sota del fill de l'element de referència </h3>
+
+      <ul class="fills-descendents">
+        <li><b>Primavera</b></li>
+        <li><b>estiu</b></li> 
+        <li><b>tardor</b></li>
+        <li><b>hivern</b></li>
+      </ul>
+
+      <h3> Selectors germans - germans en general(~) alt gr + 4 : applica a al mateix nivell que l'element seleccionat i a partir de l'element  seleccionat de referència </h3>
+
+       <ul class="germans"></ul>
+        <li><b>Primavera</b></li>
+        <li class="germans-general"><b>estiu</b></li> 
+        <li><b>tardor</b></li>
+        <li><b>hivern</b></li>
+      </ul>
+    
+
+     <h3> Selectors adjacents (+) - applica a la mateix nivell  i unicament al germà a partir de l'element de referència </h3>
+
+     <ul</ul>
+        <li><b>Primavera</b></li>
+        <li class="germans-adjacents"><b>estiu</b></li> 
+        <li><b>tardor</b></li>
+        <li><b>hivern</b></li>
+      </ul>
+
+
+      <h3> Selectors d'atribut (+)  </h3>
+      <p>podem applicar estils css utilizant com a referencia qualsevol atribut de qualsevol etiqueta HTMl</p>
+      <nav class="selectors-atributs">
+      <ul>
+        <li><a href="" target="_blank">INICI</a></li>
+        <li><a target="_blank">assignatures</a></li>
+        <li><a href="" target="_blank">blog</a></li>
+        <li><a href="" target="_blank">notes</a></li>
+        <li><a href="" target="_blank">CV</a></li>
+        <li><a href="" target="_blank">actualment</a></li>
+      </ul>
+      </nav>
+
+      <h3>Selectors d'atributs amb un determinat valor([atribut=valor])</h3>
+      <p>Aplicaria estils a qualsevol etiqueta que tinguit l'atribut amb el valor determinat</p>
+<h3>Selectors d'atributs amb patró ([atribut*="patro"]):applica a qualsevol atribut d'etiqueta que conté un determinat patró com a part del valor de l'atribut</h3>
+
+      <nav class="selectors-atr">
+      <ul>
+        <li><a href="index.html" target="_blank">INICI</a></li>
+        <li><a href="" target="_blank">assignatures</a></li>
+        <li><a href="" target="_blank">blog</a></li>
+        <li><a href="" target="_blank">notes</a></li>
+        <li><a href="" target="_blank">CV</a></li>
+        <li><a href="index.html" target="_blank">actualment</a></li>
+      </ul>
+      </nav>
+
+      <h3>selectors d'atributs que comenci un amb patró([atribut^⁼"patro"])</h3>
+
+       <nav class="selectors-atr-patro">
+      <ul>
+        <li><a href="#index.html" target="_blank">INICI</a></li>
+        <li><a href="_#" target="_blank">assignatures</a></li>
+        <li><a href="#" target="_blank">blog</a></li>
+        <li><a href="" target="_blank">notes</a></li>
+        <li><a href="" target="_blank">CV</a></li>
+        <li><a href="#index.html" target="_blank">actualment</a></li>
+      </ul>
+      </nav>
+
+      <h3>selectors d'atributs que acabé un amb patró([atribut$⁼"patro"])</h3>
+
+        <nav class="selectors-atr-patro">
+      <ul>
+        <li><a href="#index.html" target="_blank">INICI</a></li>
+        <li><a href="_#" target="_blank">assignatures</a></li>
+        <li><a href="#-css" target="_blank">blog</a></li>
+        <li><a href="" target="_blank">notes</a></li>
+        <li><a href="cv-css" target="_blank">CV</a></li>
+        <li><a href="#index.html" target="_blank">actualment</a></li>
+      </ul>
+      </nav>
+
+
+         <h3>selectors d'atributs que hi hagi  un  patró en una llista de valors([atribut~⁼"patro"])</h3>
+
+        <nav class="selectors-atr-patro">
+      <ul>
+        <li><a href="#index.html" target="_blank" class="menu-item cursos button ">INICI</a></li>
+        <li><a href="_#" target="_blank">assignatures</a></li>
+        <li><a href="#-css" target="_blank" class="menu-item cursos button" >blog</a></li>
+        <li><a href="" target="_blank">notes</a></li>
+        <li><a href="cv-css" target="_blank">CV</a></li>
+        <li><a href="#index.html" target="_blank">actualment</a></li>
+      </ul>
+      </nav>
+
+       <h3>selectors d'atributs que hi hagi  un  patró en una llista de valors([atribut~⁼"patro"])</h3>
+
+        <nav class="selectors-atr-patro">
+      <ul>
+        <li><a href="#index.html" target="_blank" class="menu-item cursos button ">INICI</a></li>
+        <li><a href="_#" target="_blank">assignatures</a></li>
+        <li><a href="#-css" target="_blank" class="menu-item cursos button" >blog</a></li>
+        <li><a href="" target="_blank">notes</a></li>
+        <li><a href="cv-css" target="_blank">CV</a></li>
+        <li><a href="#index.html" target="_blank">actualment</a></li>
+      </ul>
+      </nav>
+
+      <h3>selectors d'atributs que hi hagi  un  patró en una llista de valors([atribut|⁼"patro"])</h3>
+
+        <nav class="selectors-atr-patro">
+      <ul>
+        <li><a href="#index.html" target="_blank" class="menu-item cursos button ">INICI</a></li>
+        <li><a href="_#" target="_blank" class="item cursos menu-button">assignatures</a></li>
+        <li><a href="#-css" target="_blank" >blog</a></li>
+        <li><a href="" target="_blank">notes</a></li>
+        <li><a href="cv-css" target="_blank">CV</a></li>
+        <li><a href="#index.html" target="_blank">actualment</a></li>
+      </ul>
+      </nav>
+      
+      
+      <a href="index.html#index-css"> ☝🏼tornar-index</a>
+    </article>
+  
+   
+
+    <article id="selector-universal">
+      <h2>Selector Universal</h2>
+      <p>el selector Universal com a referencia el comodí que applicar etils a tots els elements htm del document </p>
+      <p>Selector Universal contextual aplica estils a tots  els elements que hi ha dins de la classe seleccionada</p>
+      <ul class="selectors-universal-contextual">
+        <li><b>Primavera</b></li>
+        <li><b>estiu</b></li> 
+        <li><b>tardor</b></li>
+        <li><b>hivern</b></li>
+      </ul>
+      
+       <a href="index.html#index-css"> ☝🏼tornar-index</a>
+    </article>
+
+    <article id="pseudoclasses">
+      <h2>els pseudoclasses</h2>
+      <p>les pseudoclasses apllicaran estils depenent del context,la posició o de certs estats que tingui l'element htm en questio.les pseudoclasses comencen amb dos punts</p>
+      <form class="form-pseudoclasses">
+        <input type="text" name="nom" placeholder="Introduiex el nom..." required/><br>
+        <input type="email" name="correu" placeholder="Introduiex el correu" disabled/><br>
+        <input type="submit" name="email" id="">
+
+      </form>  
+<br><br><br><br><br>
+      <nav class="menu-pseudoclasses">
+        <a href="Seccio 1">Seccio 1</a>
+        <a href="Seccio 2">Seccio 2</a>
+        <a href="Seccio 3">Seccio 3</a>
+        <a href="Seccio 4">Seccio 4</a>
+      </nav>
+
+       <a href="index.html#index-css"> ☝🏼tornar-index</a>
+       </article>
+    </article>
+    <article>
+<h3>pseudoclasses que es basen en la posició i el tipus d'element</h3>
+
+       <nav class="pseudoclasses-per-posicio"></nav>
+       <ol class="llista-pseudoclasses">
+        <li>Gener</li>
+        <li>Febrer</li>
+        <li>Març</li>
+        <li>Abril</li>
+        <li>Maig</li>
+        <li>Juny</li>
+        <li>Juliol</li>
+        <li>Agost</li>
+        <li>Setembre</li>
+        <li>Octubre</li>
+        <li>Novembre</li>
+        <li>Desembre.</li>
+       </ol>
+      </nav>
+
+      <article class="article-pseudoclasses">
+        <header>això és una capçalera</header>
+        <p>això és un paràgraf</p>
+        <div>això és una div</div>
+        <p>això és un altre paràgraf</p>
+        <section>això és una secció</section>
+        <p>això és un altre paràgraf més</p>
+        <div>això és un altre div</div>
+        <p>això és un altre paràgraf més, un altre cop</p>
+        <footer>això és un peu de pàgina</footer>
+      </article>
+      <br>
+       <a href="index.html#index-css">☝🏻</a>
+     </article>
+
+    <article id="pseudoelements">
+      <h2>Els pseudoelements</h2>
+      <p>ens permeten aplicar estilsa a una part especifica d'un element S'utilitzaen els dobles dos punts(::). els pseudo elements aplique a qualsevol element de bloc (p,div,..)</p>
+
+      <p><i>Moneda ibèrica</i><span class="Iltirta-zona"> Intirta</span><span class="Iltirta-preu"> 150</span></p>
+      <p class="p-pseudoelement">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, exercitationem quasi dolorem debitis quia maiores culpa molestiae aliquam quisquam asperiores eos incidunt animi at laudantium iste fuga earum tempore veritatis.</p>
+      <input type="text" class="input-pseudoelement" name="nom" placeholder="Introduiex un nom">  <br>
+           <a href="index.html#index-css"> ☝🏼tornar-index</a>
+    </article>
+
+<hr>
+    <article id="agrupar-selectors">
+      <h2></h2>
+      <p>Serveix per quan volem els mateixos estils a diferents selectors utilitze la coma per llistar selectors als quals olem aplicar els mateixos estils</p>
+
+      <form class="form-agrupar-selectors">
+        <input type="text" name="nom" placeholder="Introduiex el nom">
+        <input type="email" name="correu" placeholder="Introduiex el correu">
+        <textarea name="comentaris" placeholder="escriu comentari"></textarea>
+        <input type="submit" value="enviar">
+      </form>
+       <a href="index.html#index-css"> ☝🏼tornar-index</a>
+    </article>
+
+ <hr>
+    <article id="">
+      <h2>Algorithm CSS</h2>
+      <p>és la forma que el navegador aplicará ls estils als documents HTML. És molt important entendre-ho per saber com s'aplique i alguns casos com se sobreescriuen les regles CSS. per entende l'algoisme CSS cal tenir clars els següents conceptes;</p>
+      <ol>
+        <li>la cascada</li>
+        <li>L'especificitat</li>
+        <li>L'herència</li>
+      </ol>
+      <h3>1.la cascada. Depén de:</h3>
+      <ol>
+        
+      </ol>
+      <p>Lorigin del codi. és d'on vé el codi.Hi ha tres possibiitats:</p>
+      <ol>
+        <li>User Agent</li>
+        <li>Personalitzacio de l'usuari</li>
+        <li>estils d'autor</li>
+      </ol>
+      <p><b>User Agent</b></p>
+       <a href="index.html#index-css"> ☝🏼tornar-index</a>
+    </article>
+
+<br><br><br><br><br>
+    <hr>
+    <article id="Algorithm-CSS">
+      <h2>Algorithm CSS</h2>
+      <p></p>
+       <a href="index.html#index-css"> ☝🏼tornar-index</a>
+    </article>
+
+
+
+    
+
+  </body>
+</html>

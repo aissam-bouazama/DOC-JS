@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+    <script>
+      const animal = {
+        nom: "Gat",
+        pes: 18.0,
+        soroll() {
+          console.log("estic fent soroll....");
+        },
+      };
+      console.log(animal);
+
+      function Animal(nom, genere) {
+        //Atributs
+        this.nom = nom;
+        this.genere = genere;
+
+        //Métodes
+        /*this.sonar = function () {
+                console.log("estic fent soroll...");
+              };
+              this.saludar = function () {
+                console.log(`Hola el meu nom és ${this.nom}`);
+              };*/
+      }
+      //instanciar
+      //metode prototipus
+      Animal.prototype.sonar = function () {
+        console.log("estic fent soroll");
+      };
+      Animal.prototype.saludar = function () {
+        console.log(`Hola el meu nom és ${this.nom}`);
+      };
+      function Gos(nom, genere, pes) {
+        //difinir la classe pare
+        this.super = Animal;
+        this.super(nom, genere);
+        this.pes = pes;
+      }
+      //Cal especificar que herite de quina classe que herite en el nostre cas Animal
+      Gos.prototype = new Animal();
+      //delarem els constructor
+      Gos.prototype.constructor = Gos;
+
+      //Sobreescriure el métode sonar(
+      Gos.prototype.sonar = function () {
+        console.log("estic Bordant.....");
+      };
+
+      //afegir un nou métode al prototipus Gos
+      Gos.prototype.bordar = function () {
+        console.log("Guau Guau!");
+      };
+
+      //instancia un gos
+      const gosset = new Gos("comtu", "masculi", 12),
+        animalet = new Animal("animalet", "femella");
+
+      console.log(gosset);
+      console.log(animalet);
+
+      gosset.sonar();
+      gosset.bordar();
+      gosset.saludar();
+
+      animalet.sonar();
+      animalet.saludar();
+
+      console.log(gosset.pes, gosset.nom, gosset.genere);
+      console.log(animalet.pes, animalet.nom, animalet.genere);
+
+      /*
+            const terri = new Animal("tobi", "Femení");
+            console.log(terri);
+            const mono = new Animal("mono", "masculí");
+            console.log(mono);*/
+    </script>
+    -->
+    <!--el type module es molt important per a que funcione perfectament -->
+    <!--<script src="js/ex.js" type="module"></script>-->
+
+    <script>
+      class Animal {
+        constructor(nom, genere) {
+          this.nom = nom;
+          this.genere = genere;
+        }
+
+        sonar() {
+          console.log("faig soroll..");
+        }
+        saludar() {
+          console.log("hola que tal");
+        }
+      }
+
+      console.log(Animal);
+
+      class Gos extends Animal {
+        constructor(nom, genere, pes) {
+          super(nom, genere);
+          this.pes = pes;
+        }
+        sonar() {
+          console.log("guau guau");
+        }
+        //métode de classe
+        static info() {
+          console.log("fill del pancho colate i la gosseta terry");
+        }
+      }
+      const gosset2 = new Gos("pancho", "masculí", 12);
+      console.log(gosset2);
+      //s'ha de utilitzar amb el nom de la classe
+      Gos.info();
+      Gos.info();
+    </script>
+  </body>
+</html>

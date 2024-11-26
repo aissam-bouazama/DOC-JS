@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //this
+      //funcions declarades
+      const pepe = {
+        nom: "pepe",
+        cognoms: "Gimenez",
+        edat: 99,
+        saludar: function saludar() {
+          console.log("Hola que tal");
+        },
+        fersoroll: () => {
+          console.log("estic fent soroll");
+          //en aquest cas és hace hosting a window
+          console.log(this);
+        },
+      };
+      pepe.saludar();
+      pepe.fersoroll();
+
+      function persona(nouNom) {
+        let nom = nouNom;
+        console.log(nom, this);
+      }
+      //corchetes []
+      //paréntesis ()
+      //claus {}
+      //totes els funcions anonimes el this fa el huesting a window
+      persona("pepe");
+      const funcioexpressad = function () {
+        console.log("estic en una funcio expressada");
+        console.log(this);
+      };
+      funcioexpressad();
+
+      //Call, appl i bind
+      // tres formes de canviar el context d'execució
+
+      this.lloc = "Context Global";
+      function saludar(salutacio, aQui) {
+        console.log(`${salutacio}, ${aQui} des de ${this.lloc}`);
+      }
+      saludar("hola", "Joan");
+      const obj = {
+        lloc: "Context d'Objecte",
+      };
+      saludar.call(obj, "Hola", "Joan");
+      saludar.call(null, "Hola", "Joan");
+      saludar.call(this, "Hola", "Joan");
+      console.log("***********************Apply*******************");
+      saludar.apply(obj, ["Adeu", "Joan"]);
+      saludar.apply(this, ["Hola", "Joan"]);
+      console.log("***********************Bind*******************");
+      //bind
+      this.nom = "Nom Global del miquel";
+      const persona = {
+        nom: "Miquel",
+        saludar: function () {
+          console.log(`Hola ${this.nom}`);
+        },
+      };
+
+      persona.saludar();
+
+      const unaaltrapersona = {
+        saludar: persona.saludar.bind(this),
+      };
+      unaaltrapersona.saludar();
+    </script>
+  </body>
+</html>

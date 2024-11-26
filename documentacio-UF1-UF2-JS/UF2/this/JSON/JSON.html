@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const json = {
+        cadena: "aissam",
+        numero: 19,
+        boolea: true,
+        array: ["gener", "febrer", "Cantar"],
+        objecete: {
+          email: "abouzama@almata.cat",
+          twitter: "@nomimes",
+        },
+        null: null,
+        codipostal: 25600,
+        undefined: undefined,
+      };
+      //parse
+      console.log(json);
+      console.log(JSON);
+      console.log(JSON.parse("{}"));
+      console.log(JSON.parse("[1,2,3]"));
+      console.log(JSON.parse('"hola que tal"'));
+      console.log(JSON.parse('{"x":2,"y":4}'));
+      //console.log(JSON.parse("undefined")); //COmpte
+      console.log(JSON.parse("null"));
+
+      //métodes JSON ( strimgyfy)
+      console.log("***************stringify*******************");
+      console.log(JSON.stringify({}));
+      console.log(JSON.stringify("[1,2,3]"));
+      console.log(JSON.stringify("hola que tal"));
+      console.log(JSON.stringify(true));
+      console.log(JSON.stringify({ x: 2, y: 4 }));
+      console.log(JSON.stringify(undefined)); //COmpte
+      console.log(JSON.stringify(null));
+
+      console.log("***************JSON  STRINGYFY exemples*******************");
+      console.log(JSON.stringify(json));
+
+      console.log("***************JSON  parse exemples*******************");
+      console.log(JSON.parse(JSON.stringify(json)));
+    </script>
+  </body>
+</html>

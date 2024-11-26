@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primer dia de classe</title>
+  </head>
+  <body>
+    <p>hola</p>
+    <!--comentari amb html-->
+    <script>
+      //es una cosa de prototipus no sabia orientacio de objectes
+      let d = "hola mon";
+      console.log(d);
+      d = "88";
+      console.log(d);
+      let r = `valor de ${d} `;
+      //commentari de una linia
+      /*
+      commentari de mes de una linia*/
+      //let vs Var
+      var variableGlobal = "adeu mon";
+      // el var es una manera per declarar el variable de forma global
+      //console.log("Labans", variablelocal);
+      console.log("Gabans", variableGlobal);
+
+      {
+        //bloc
+        // el let es local no mes si esta dins del bloc funciona solo en el bloc
+        let variablelocal = "Hola mon";
+        console.log("Ldins", variablelocal);
+        console.log("Gdins", variableGlobal);
+      }
+      //variable local no esta definit fora del bloc
+      // console.log("ldespres", variablelocal);
+      console.log("gdespres", variableGlobal);
+
+      //declaracio de constants
+      //els constants no es poden fer canvis de valor
+      //i els valors els donen al mateix momen de la declaracio
+      const PI = 3.1416;
+
+      //Tipus de dades
+      // Tipus Cadena o string
+      let nom = "Aissam bouazama";
+      console.log(nom);
+
+      let estatcivil = new String("   Casat   ");
+      console.log(estatcivil);
+      console.log(estatcivil.length);
+      console.log(estatcivil.toUpperCase());
+      console.log(estatcivil.trim());
+      let para = "un dos tres, quatre cinc sis,set vuit";
+      console.log(para.split(" "));
+
+      let saludar = `Hola, ${nom}`;
+      console.log(saludar);
+      let ul = `<ul>
+                  <li>hivern</li>
+                  <li>primavera</li>
+                  <li>tardor</li>
+              </ul>`;
+      console.log(ul);
+
+      //tipus Number (Números)
+      // tot els numeros son number no i ha float double
+      let numero1 = 9;
+      let numero2 = 3.56;
+      let numero3 = new Number(99.13);
+      console.log(numero2.toFixed(1));
+      console.log(parseInt(numero2));
+      console.log(typeof numero2);
+      //19 de set 2024
+      console.log(typeof nom);
+      console.log(saludar + estatcivil);
+      console.log(numero2 + "22");
+      console.log(numero2 + parseInt("22"));
+
+      //Boolean
+      let fals = false;
+      console.log(typeof fals);
+      let Cert = true;
+
+      let v = new Boolean(true);
+
+      //valors que tendeixen a cert  (Truthy)
+      //i valors que tendeixen a fals (Falsy)
+
+      console.log(new Boolean(-0));
+      console.log(new Boolean([]));
+
+      //Undifined,null,NaN(Not a number)
+      //null ,undifined representen una variable que no té cap valor definit.
+      //undifined es quan el variable no el dones cap valor
+      //i el null es quan el assignes un valor null pe assegurar que no te cap valor definit
+      let noDefinida;
+      console.log(noDefinida);
+      noDefinida = null;
+      console.log(noDefinida);
+
+      //NaN(Not a Number)
+      //quan fem operacion aritmetiques i un dels valors no es numèric llavors tindra NaN
+
+      let noEsUnNumero = "hola" * 7;
+      console.log(noEsUnNumero);
+
+      // funcions es fan per reutilizar codi i es consideren objectes
+    </script>
+  </body>
+</html>

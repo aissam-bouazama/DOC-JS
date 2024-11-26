@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gestió d'errors</title>
+  </head>
+  <body>
+    <script>
+      //gestió d'errors
+      console.log("****** primer exemple******");
+
+      try {
+        //codi sensible a produir un error
+        console.log("bloc try");
+      } catch (error) {
+        console.log("bloc catch");
+      } finally {
+        // s'execute siempre
+        console.log("bloc finally");
+      }
+      console.log("****** segon exemple******");
+      try {
+        //codi sensible a produir un error
+        console.log("bloc try");
+        noexisteix;
+      } catch (error) {
+        console.log("bloc catch");
+        console.log(error);
+      } finally {
+        // s'execute siempre
+        console.log("bloc finally");
+      }
+      //personalitzar els errors
+      console.log("****** tercer exemple******");
+      try {
+        let a = "hola";
+        if (isNaN(a)) {
+          throw new Error("el valor no és un número ");
+        }
+      } catch (error) {
+        console.log(`s'ha produit un error : ${error}`);
+      }
+
+      //break i continue
+      console.log("------------------break---------------");
+      for (let a = 0; a < 10; a++) {
+        console.log(a);
+        if (a === 5) {
+          break;
+        }
+      }
+
+      //continue
+      console.log("-----------Continue-------");
+      let b = 1,
+        continuar = true;
+      while (b <= 15 && continuar) {
+        if (b === 4) {
+          continuar = false;
+
+          continue; //torna aevaluar l'expressio boolean de les iteracions
+        }
+        console.log("b = " + b);
+        b++;
+      }
+
+      //desestructuració (destructuring)
+      //nova forma d'inicialitzar variables apartir de un array o un objecte
+
+      //sense desestructuració
+      let matriu = [12, 15, 46];
+      let a1 = matriu[0];
+      let a2 = matriu[1];
+      let a3 = matriu[2];
+
+      //amb desestructuració
+      let matriu2 = [12, 15, 46];
+      const [primer, segon, tercer] = matriu2;
+      console.log(primer, segon, tercer);
+
+      // destructuring d'objectes
+
+      let persona = {
+        nom: "Joan",
+        cognoms: "Jimenez Perez",
+        edat: 55,
+      };
+      //és molt important que el nom de les variables conincedeixi exactament amb el nom dels atributs de l'objecte
+      //i es pot agafar qualquier atribut del objecte amb la utilitzacio del seu nom
+      let { edat, nom, cognoms } = persona;
+      console.log(edat, nom, cognoms);
+
+      console.log("");
+      //Objectes literals
+      let nick = "pipiu",
+        temps = 23;
+      console.log(nick, temps);
+
+      const gos = {
+        nom: nick,
+        edat: temps,
+        bordar: function () {
+          console.log("Guau Guau");
+        },
+      };
+      console.log(gos);
+
+      let dog = {
+        nick,
+        edat,
+        temps,
+        raça: "caçador",
+        bordar: function () {
+          console.log("Guau Guau");
+        },
+      };
+      console.log(dog);
+    </script>
+  </body>
+</html>

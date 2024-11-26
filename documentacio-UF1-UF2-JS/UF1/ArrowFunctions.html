@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Functions</title>
+  </head>
+  <body>
+    <script>
+      //arrow functions programacio funcionals
+      //() => {}
+      //funvio declarada
+      function salutacio2() {
+        console.log("hols dins de una funció declarada");
+      }
+      salutacio2();
+      //funcions expresades (anonimés )
+      const salutacio = function () {
+        console.log("hola des de una funció expresada");
+      };
+      salutacio();
+
+      //arrow function
+      let salutacio3 = () => console.log("hola des de un Arrow function");
+
+      salutacio3();
+
+      //paraméstres
+      let salutacio4 = (nom) => console.log(`hola ${nom}`);
+      salutacio4("Aissam");
+
+      //call back ARROW function
+
+      const numeros = [11, 22, 33, 44, 55, 66];
+      //si hi ha  una sola una linia fa reurn automatic
+      numeros.forEach((ele, id) => {
+        console.log("l'element " + ele + " és a la posició " + id);
+      });
+
+      // Exemples d'us
+      //ambit o context de les funions declarades és l'objecte Global window Capturen el context del Objecte al qual es troben
+      function gos() {
+        console.log(this);
+      }
+      gos();
+
+      //el this en un function fa la crida al objecte en el que esta
+      const gos1 = {
+        nom: "blanca",
+        bordar() {
+          console.log(this);
+        },
+      };
+      gos1.bordar();
+
+      //el this en un arrow function fa la crida el window (fa el hosting per i busca el window)
+      // COMPTE NO UTILIZAR ARROW FUNCTIONS ALS OBJECTES (perque l'ambit fa un hosting a l'objecte window )
+      const gos2 = {
+        nom: "negra",
+        bordar: () => console.log(this),
+      };
+      gos2.bordar();
+
+      //A les arrow functions si hi ha varies linies de codi cal possar claus
+      /*
+        no poden invocar-se abans de la seva declaració
+        Es habitual declarar-les constants (Const)
+        se les coneix com funcions anonimes, per que no tenen nom 
+        i la funció s'assigna a una variable
+      */
+      const varieslinies = () => {
+        console.log("primera linia de codi ");
+        console.log("segona linia de codi ");
+      };
+
+      varieslinies();
+    </script>
+  </body>
+</html>

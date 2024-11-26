@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objectius Nadius del navegador</title>
+  </head>
+  <body>
+    <script>
+      //Objectius Nadius del navegador
+      //Objecte Console
+      console.log("log");
+      console.info("info");
+      console.warn("Adverténcia");
+      console.error("error");
+
+      let nom = "pere";
+      console.log("nom : %s", nom);
+      console.clear();
+      //el codi del html del fitxer
+      console.log(document);
+
+      //grups
+      console.group("punts agrupats");
+      console.log("punt 1");
+      console.log("punt 2");
+      console.log("punt 3");
+      console.log("punt 4");
+      console.log("punt 5");
+      console.groupEnd();
+
+      //
+      console.table(Object.entries(console));
+      console.table(Object.entries(console).sort());
+      let numeros = [1, 2, 3, 4, 5, 6, 7];
+      console.table(numeros);
+      console.time("Quant tarda a executase el codi ?");
+      const contenedorPesat = Array(1000);
+      contenedorPesat.forEach((element) => console.log(element));
+
+      console.timeEnd("Quant tarda a executase el codi ?");
+
+      for (let a = 1; a < 10; a++) {
+        console.count("comptador: ");
+      }
+      // Objecte DATE
+      console.clear();
+      let data = new Date();
+      console.log(data);
+      console.log(data.getDate());
+      //0 diumenge ,1 dilluns ,2 dimarts ,..
+      //obtener dia
+      console.log(data.getDay());
+      //obtener mes
+      console.log(data.getMonth());
+      //l'any
+      //des de l'any 1900
+      console.log(data.getYear());
+      //obtener any
+      console.log(data.getFullYear());
+      //obtener l'hora
+      console.log(data.getHours());
+      //obtener minute
+      console.log(data.getMinutes());
+      //seconds
+      console.log(data.getSeconds());
+      //mil.lisegons
+      console.log(data.getMilliseconds());
+      //data en format cadena
+      console.log(data.toString());
+      console.log(data.toDateString());
+      //hora local
+      console.log(data.toLocaleString());
+      console.log(data.toLocaleDateString());
+      console.log(data.toLocaleTimeString());
+      //Zona horaria
+      console.log(data.getTimezoneOffset());
+      console.log(data.getUTCDate());
+      console.log(data.getUTCHours());
+      //time stamp seconds es de l`01/01/1970
+      console.log(Date.now());
+      //llibreria moment.js
+      //crear una data amb format ...
+      let data1 = new Date(1968, 4, 30);
+      console.log(data1);
+      //OBJECTE MATH
+      //Constants
+      console.clear();
+      console.log(Math.PI);
+      //valor absolute
+      console.log(Math.abs(-7.8));
+      //arrodonir per sobre
+
+      console.log(Math.ceil(7.2));
+      //arrodenir per sota
+      console.log(Math.floor(7.2));
+      //arrodonir a l'enter més proper
+      console.log(Math.round(7.5));
+      //arrel quadrada
+      console.log(Math.sqrt(49));
+      //poténcia
+      console.log(Math.pow(10, 3));
+      //és negatiu
+      //negatiu (-1) ,Zero (0), positiu (1)
+      console.log(Math.sign(10));
+      //aleatori entre 0 i 1
+      console.log(Math.random());
+      //aleatori entre 0 i 10000
+      console.log(Math.random() * 10000);
+      //operador de curt circuit
+      //amb OR i amb AND
+      //OR: si el valor de l'esquerra és cert,es el valor que carrega altrament carregara el valor de la dreta
+      let nom1 = "";
+      nom1 = nom1 || "Error API REST";
+      console.log(nom1);
+      // AND:  SI el valor de l'equerra és fals ,és el valor que carregarà .Altrament carregara el valor de la dreta
+      let nom2 = "hola";
+      nom2 = nom2 && "desconugut";
+      console.log(nom2);
+      //alert confirm i prompt
+      //son objecte s de window
+      //es poden utilitzar els metodes globals sense window.
+
+      window.alert("hola");
+      //Acceptar -> true cancel.lar -> false
+      let resposta = window.confirm("Segur");
+      console.log(resposta);
+      //prompt permet introduir un valor
+      //si no introduïm cap valor retorna null altrament retorna el valor introduït
+      let edat = window.prompt("entra l'edat");
+      console.log(edat);
+    </script>
+  </body>
+</html>

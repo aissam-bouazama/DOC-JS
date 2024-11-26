@@ -1,0 +1,274 @@
+@import url("estils2.css");
+/*més generics adalt*/
+* {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+/*bloquejant*/
+html {
+  scroll-behavior: smooth;
+}
+body {
+  height: 100%;
+
+  font-size: 1re;
+  background-color: white;
+}
+
+/*selectors basics
+
+- SELECTORS ETIQUETES QUALSEVOL ETIQUITA HTML
+- SELECTORS D'IDENTIFICADORS id ("#")
+- SELECTORS DE CLASSES (CLASS=++++ ".")
+*/
+/*SELECTORS ETIQUETES:s'applica a tots els paragrafs a totes les etiquetes <p> */
+p {
+  color: black;
+}
+/*
+no és una bona pratica aplicar estils amb ID
+1)per qué té un especificitat elevada 
+2)no podem aprofitar estils aplicats amb id per que son unics.
+*/
+#paragraf-dos {
+  color: black;
+}
+
+.paragraf-tres {
+  color: lightgreen;
+}
+
+.text-20 {
+  font-size: 20px;
+}
+.text-30 {
+  font-size: 30px;
+}
+.text-white {
+  color: white;
+}
+
+/*fills drectes*/
+.fills-directes > li {
+  background-color: chocolate;
+}
+/*aquest cas seria incorrecte per que bold no és fil directe*/
+.fills-directes > b {
+  background-color: aqua;
+}
+
+/*fills descendents */
+.fills-descendents b {
+  background-color: lightgray;
+}
+/*germans generals*/
+.germans-general ~ li {
+  background-color: blue;
+}
+/*germans-adjacents*/
+.germans-adjacents + li {
+  background-color: blueviolet;
+}
+
+/*selectors d'atributs*/
+.selectors-atributs a[href] {
+  background-color: violet;
+  color: aqua;
+}
+
+/*selectors d'atributs amb valors concrets*/
+.selectors-atributs a[target="_blank"] {
+  background-color: brown;
+}
+
+/*selectors d'atributs amb un patró*/
+.selectors-atr a[href*="index"] {
+  font-size: 30px;
+}
+
+/*selectors d'atributs que comenci  amb un patró */
+
+.selectors-atr-patro a[href^="#"] {
+  text-decoration: none;
+}
+
+/*selectors d'atributs que acabe  amb un patró */
+
+.selectors-atr-patro a[href$="-css"] {
+  font-style: italic;
+}
+
+/*selectors d'atributs que acabe  amb un patró i a continuació del patro */
+
+.selectors-atr-patro a[class~="cursos"] {
+  font-family: "Courier New";
+}
+
+/*selectors d'atributs que acabe  amb un patró i a continuació del patro hi ha hagi un guionet "-" */
+
+.selectors-atr-patro a[class|="menu"] {
+  color: brown;
+}
+
+.selectors-universal-contextual * {
+  font-size: 24px;
+}
+/*tots el elemenets de la classe que tenguin el atribut required*/
+.form-pseudoclasses *:required {
+  border-color: blue;
+}
+/*aplica estils a els elements de la classe seleccionada que tinguin contingut correcte */
+.form-pseudoclasses *:valid {
+  border-color: green;
+  font-size: 24px;
+}
+
+/*aplica estils a els elements de la classe seleccionada que tinguin contingut incorrecte */
+.form-pseudoclasses *:invalid {
+  border-color: red;
+}
+
+/*aplica estils a els elements de la classe seleccionada que rebé el focus*/
+.form-pseudoclasses *:focus {
+  background-color: skyblue;
+}
+
+/*aplica estils a els elements de la classe seleccionada que tinguin l'atribut diabled */
+.form-pseudoclasses *:disabled {
+  background-color: pink;
+}
+/*Les pseudoclasses interactives
+ordered d'applicacio de les psseudo classes :link  -  :vistied   -   :focus  - :hover ,  :active*/
+/*link qualsevol elements no ha sigut vistat encara no s'ha visitat*/
+.menu-pseudoclasses a:link {
+  color: blueviolet;
+}
+
+/*:visite aplica als elements mentre estan no s'han visitat*/
+.menu-pseudoclasses a:visited {
+  color: red;
+}
+
+/*:hover aplica als elements mentre passa el cursor per ells*/
+.menu-pseudoclasses a:hover {
+  font-size: 140%;
+}
+
+/*:focus aplica als elements mentre estan seleccionats*/
+.menu-pseudoclasses a:focus {
+  background-color: yellow;
+}
+
+/*:focus aplica als elements mentre estan seleccionats*/
+.menu-pseudoclasses a:focus {
+  background-color: yellow;
+}
+
+/*:focus aplica als elements desde que prenem el boto del ratoli sobre l'enllaç s fins que el deixem de prémer*/
+.menu-pseudoclasses a:focus {
+  color: black;
+}
+
+/*pseudo classe aplicada a una URL :target-> un target ésta actiu quan formé part de la url llavors podem aplicar estils amb la pseudo classe*/
+#index-css:target {
+  background-color: yellowgreen;
+}
+
+/*pseudoclasses per posició*/
+/*primer element de la "llista-pseudoclasses"*/
+.llista-pseudoclasses li:first-child {
+  color: orange;
+}
+
+/*ultim element de la "llista-pseudoclasses"*/
+.llista-pseudoclasses li:last-child {
+  color: rgb(147, 18, 109);
+}
+
+/*element "n" de la "llista-pseudoclasses"*/
+.llista-pseudoclasses li:nth-child(4) {
+  color: blue;
+}
+
+/*elements multiples de "n" de la "llista-pseudoclasses"*/
+.llista-pseudoclasses li:nth-child(3n) {
+  color: gray;
+}
+
+/*elements multiples de "n" + 1 de la "llista-pseudoclasses"*/
+.llista-pseudoclasses li:nth-child(3n + 1) {
+  font-size: 140%;
+}
+
+/*elements parells de la "llista-pseudoclasses"*/
+.llista-pseudoclasses li:nth-child(even) {
+  background-color: yellow;
+}
+
+/*elements imparells de la "llista-pseudoclasses"*/
+.llista-pseudoclasses li:nth-child(odd) {
+  background-color: rgb(255, 0, 0);
+}
+
+/*subclasses que apliquen a posició i tipus d'etiqueta o element*/
+.article-pseudoclasses p:first-of-type {
+  background-color: purple;
+}
+
+.article-pseudoclasses p:last-of-type {
+  background-color: blue;
+}
+
+.article-pseudoclasses p:nth-of-type(3) {
+  color: green;
+}
+
+/* aquest exemple NO APLICA perquè el primer element no és un paràgraf!!
+.article-pseudoclasses p:first-child {
+  background-color: orange;
+}*/
+
+/* la negació: aplica a tots els elements excepte... */
+
+.article-pseudoclasses *:not(p) {
+  font-size: 150%;
+}
+
+/*pseudo elements*/
+/*::beforepermet afegir contingut abans de l'element seleccionat .
+Necessita treballar amb l'atribut "content"*/
+.Iltirta-zona::before {
+  content: "👌🏼";
+}
+/*::sfter permet afegir contingut després de l'element seleccionat .
+Necessita treballar amb l'atribut "content"*/
+.Iltirta-preu::after {
+  content: "€";
+}
+
+/*first letter el primer lletra */
+.p-pseudoelement::first-letter {
+  font-size: 2rem;
+}
+.p-pseudoelement::first-line {
+  background-color: bisque;
+}
+
+/*NOTA: EL pseudoelement selection no permet sobreescriure atributs d'estils de text*/
+
+.p-pseudoelement::selection {
+  background-color: black;
+  color: chartreuse;
+}
+
+/*agrupar selectors*/
+.form-agrupar-selectors input[type="text"],
+input[type="email"],
+textarea {
+  display: block;
+  background-color: black;
+  margin: 5px;
+  font-size: 20px;
+  width: 300px;
+  border: medium dotted yellow;
+}

@@ -1,0 +1,11 @@
+{
+  "cadena": "aissam",
+  "numero": 19,
+  "boolea": true,
+  "array": ["gener", "febrer", "Cantar"],
+  "objecete": {
+    "email": "abouzama@almata.cat",
+    "twitter": "@nomimes"
+  },
+  "null": null
+}

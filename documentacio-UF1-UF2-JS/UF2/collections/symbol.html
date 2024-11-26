@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--Tipus de dades simple anomenat symbol
+    Serveix per afegir Caraterstiques o propietats privades als Objectes Permeten Crear 
+    indenticadors únics de referencia -->
+    <script>
+      let id = Symbol("id");
+      let id2 = Symbol("id2");
+
+      console.log(id === id2);
+      console.log(typeof id, typeof id2);
+
+      //els symbols son privAts
+      const NOMUSUARI = Symbol("propietat_nom_usuari");
+      //por posar el valor por un symbol en js s'ha de posar el clau dades
+      const persona = {
+        [NOMUSUARI]: "abouzama",
+      };
+      console.log(persona);
+      console.log(persona[NOMUSUARI]);
+
+      //hem Creat una funcio i l'hm associat al simbol Salutacio
+      //de la classePersona
+      const SALUTACIO = Symbol("Metode_salutacio");
+
+      persona[SALUTACIO] = function () {
+        console.log("Hola que tal...");
+      };
+
+      console.log(persona);
+      //aquesta és la manera per accedir a un attribut de un objecte
+      persona[SALUTACIO]();
+
+      for (let propietat in persona) {
+        console.log(propietat);
+        console.log(persona[propietat]);
+      }
+      console.log(Object.getOwnPropertySymbols(persona));
+      //collecions
+      //SET elements sense duplicats
+      //retorna el numero de refernecia per el objecte
+      const set = new Set([
+        1,
+        2,
+        4,
+        5,
+        5,
+        6,
+        6,
+        true,
+        true,
+        false,
+        {},
+        {},
+        "hola",
+        "hOla",
+      ]);
+
+      console.log(set);
+
+      const set2 = new Set();
+      set2.add(1);
+      set2.add(1);
+      set2.add(2);
+      set2.add(true);
+      set2.add({});
+
+      console.log(set2);
+      console.log(set2.size);
+
+      console.log("recórrer set");
+
+      for (let ele of set2) {
+        console.log(ele);
+      }
+
+      set2.forEach((ele) => console.log(ele));
+      //Convertir un Set a un array
+      //el from és un metode de classe
+
+      let arr = Array.from(set2);
+      console.log(arr);
+      set2.delete(1);
+      console.log(set2);
+      //per buscar un element si existeix
+      console.log(set2.has(2));
+      set2.clear();
+      console.log(set2);
+    </script>
+  </body>
+</html>

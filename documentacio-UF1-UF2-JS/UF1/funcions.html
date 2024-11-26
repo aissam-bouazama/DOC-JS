@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primer dia de classe</title>
+  </head>
+  <body>
+    <p>hola</p>
+    <script>
+      // funcions es fan per reutilizar codi i es consideren objectes
+      //funcions son objectes ,son elemens de primer nivel (per que s'utilitzen en qualsevol part del codi poden seer inicialitzacions de variables parametres de Functions)
+      //dona peu a la programacio funcional (Arrow functions)->és un nou paradigma de programació
+      //Si retorn un valor cal utilitzar la paraula reservada return
+      //funcions declarades vs funcions expressades
+      //expressades :
+      /*
+        no poden invocar-se abans de la seva declaració
+        Es habitual declarar-les constants (Const)
+        se les coneix com funcions anonimes, per que no tenen nom 
+        i la funció s'assigna a una variable
+      */
+
+      //funcions declarades
+      function aixoesunfuncioDecalarada() {
+        console.log("hola estic en una funcio declarada");
+      }
+      //crida de la funcio
+      aixoesunfuncioDecalarada();
+
+      function suma(a, b) {
+        return a + b;
+      }
+      console.log(suma(7, 7));
+
+      //functions amb valors per defecte son aquestes si no el donem un valor agafa un valor per defecte
+
+      function saludar(nom = "Toni", salutacio = "hola") {
+        console.log(salutacio + " " + nom);
+      }
+
+      saludar("aissam", "hola");
+      saludar();
+
+      //ARRAYS
+      // lo posem const per que els adreces los volem que es cambien
+      const a = [];
+
+      console.log(a);
+      const contenidor = [1, 2, ["A", "B", "C"], 3.5, "hola", false];
+      console.log(contenidor);
+      console.log(contenidor.length);
+      //accedir als elements
+      console.log(contenidor[1]);
+      console.log(contenidor[3]);
+      console.log(contenidor[2][1]);
+      //altres formes de crear arrays
+      const contenidor2 = Array.of("A", 5.67);
+      console.log(contenidor2[1]);
+      //el fill lo qui fa es posar 1 per els 20 posicions
+      const contenidor3 = Array(20).fill(1);
+      console.log(contenidor3);
+
+      const contenidor4 = new Array(1, 2, 3);
+      console.log(contenidor4);
+      //alguns métodes ...
+      const colors = ["verd", "marró", "tarronja"];
+      console.log(colors);
+      colors.push("groc"); //posa una altre valor al array a la ultima posicio
+      console.log(colors);
+      colors.pop(); //es treure el utlim valor del array
+      console.log(colors);
+      //iterar un array
+      colors.forEach(function (ele) {
+        console.log(ele);
+      });
+    </script>
+  </body>
+</html>

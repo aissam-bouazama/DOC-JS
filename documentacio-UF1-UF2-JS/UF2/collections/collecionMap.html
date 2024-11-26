@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //el tipus map funciona amb la parella o tupla <Clau,valor>
+
+      const mapa = new Map();
+
+      mapa.set("nom", "joan");
+      mapa.set("cognoms", "perez");
+      mapa.set("edat", 12);
+
+      console.log(mapa);
+      console.log(mapa.size);
+      console.log(mapa.has("email"));
+      console.log(mapa.has("nom"));
+      console.log(mapa.get("nom"));
+      console.log(mapa.set("nom", "joana"));
+      console.log(mapa.get("nom"));
+      mapa.delete("nom");
+      console.log(mapa);
+      console.log(mapa.set(true, "cert")); //COMPTE ! es pot fer , però no té sentit
+      console.log(mapa.set(9, "nou")); //COMPTE ! es pot fer , però no té sentit
+
+      //  recorregut pels elements del mapa
+      for (let [key, value] of mapa) {
+        console.log(`Clau ${key} valor: ${value}`);
+      }
+
+      //instanciar mapa i posa-hi valors al mateix momen
+      const mapa2 = new Map([
+        ["preu", 12],
+        ["edat", 33],
+        ["animal", "gos"],
+      ]);
+      console.log(mapa2);
+
+      //el spread es converteix elements a un array i unirles a un array
+      const clausMapa2 = [...mapa2.keys()];
+      console.log(clausMapa2);
+
+      const valuesMapa2 = [...mapa2.values()];
+      console.log(valuesMapa2);
+
+      //weakSets son versions "débils " o menors dels tipus Set
+
+      //les claus han de ser de tipus Objecte . permet al recol.lector de javascript gestiona més efficienment la neteja de la mémoria
+
+      // ALtres lìmitacions:
+      //no podem iterrar sobre Claus o valors
+      //no podem esborrar elements de cop (clear)
+      //no podem utilitzar la propietat size o no podem comprobar la mida de la collecions (size)
+      //no podem inicialitzar al moment d'instanciar
+
+      //què podem fer ?
+      //podem afegir element ?
+      //podem combrobar si existeix un element (has)
+      //podem esborrar un element (delete)
+
+      //exemple de weakSet
+      //ex no podem fer
+      //const ws = new WeakSet([1, 2, 3, 4, 5, true, {}]);
+
+      //ex que podem fér
+      const ws = new WeakSet();
+      let valor1 = { valor1: 1 };
+      let valor2 = { valor2: 2 };
+      let valor3 = { valor3: 1 };
+
+      ws.add(valor1);
+      ws.add(valor2);
+      ws.add(valor3);
+      console.log(ws);
+      console.log(ws.has(valor3));
+      /* ws.delete(valor3);
+      console.log(ws.has(valor3));*/
+      /*
+      setInterval(() => console.log(ws), 1000);
+      setTimeout(() => {
+        valor1 = null;
+        valor2 = null;
+        valor3 = null;
+      }, 3000);*/
+
+      //WeakMap
+      /*Poedm utilitzar :
+      obtner elements (get)
+      afegir element (set)
+      comprovar si existeix un element (has)
+      puc esborrar un element (delete)
+      */
+      const unMapa = new WeakMap();
+      let clau1 = {};
+      let clau2 = {};
+      let clau3 = {};
+
+      unMapa.set(clau1, 1);
+      unMapa.set(clau2, 2);
+      unMapa.set(clau3, 3);
+
+      console.log(unMapa.has(clau3));
+      console.log(unMapa.get(clau1));
+      unMapa.delete(clau1);
+
+      //proxy:permet crear un objecte basata en altre Objecte existent.
+
+      const persona = {
+        nom: "",
+        cognoms: "",
+        edat: 0,
+      };
+      //necessitem un objecte gestor amb un mètode set per gestionar les propietats de l'objecte persona
+      const gestor = {
+        set(obj, prop, valor) {
+          obj[prop] = valor;
+          return true;
+        },
+      };
+      //instanciarem un proxy que vinculara l'objecte persona persona i el gestor
+      const personaJoan = new Proxy(persona, gestor);
+      personaJoan.nom = "Joan";
+      console.log(personaJoan);
+      console.log(persona);
+      //el gestor en aquest cas es com a controlador de  les valors que entriem al objecte
+      const gestor2 = {
+        set(obj, prop, valor) {
+          if (prop === "nom" && valor === "lluis") {
+            console.error("el LLuis no està permès");
+            return true;
+          }
+          obj[prop] = valor;
+          return true;
+        },
+      };
+
+      const personalluis = new Proxy(persona, gestor2);
+      personalluis.nom = "pepe";
+      personalluis.nom = "lluis";
+      console.log(personalluis);
+      console.log(persona);
+    </script>
+  </body>
+</html>

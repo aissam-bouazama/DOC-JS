@@ -199,7 +199,7 @@ Però una cosa que hem de tenir en compte en JavaScript, i que de vegades compli
 </span>
 <br>
 
-Hi ha tres maneres per declarar les variables maneres local, global i constants
+Hi ha tres maneres per declarar les variables maneres local, global i constants .
 
 #### 1.**_Constants_**
 

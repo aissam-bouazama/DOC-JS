@@ -1,0 +1,21 @@
+.my-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.my-button:hover {
+  background-color: #45a049;
+}
+.my-button:active {
+  background-color: #3e8e41;
+}
+a {
+  text-align: center;
+  text-decoration: none;
+  color: crimson;
+}
+body {
+  font-family: "Courier New";
+}

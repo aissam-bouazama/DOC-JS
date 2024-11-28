@@ -6,21 +6,28 @@
     <!--esils externs-->
     <link rel="stylesheet" href="css/estils.css" />
     <title>Web APIs</title>
-    
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" rel="stylesheet">
-    
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1 id="index-DOM">WEB APIs</h1>
     <nav>
       <ol>
         <li><a href="index.html#dom-introduccio">introducció</a></li>
-        <li> <a href="index.html#Objecte-dom">Objecte DOM <span class="badge">(Document Object Model)</span></a></li>
+        <li>
+          <a href="index.html#Objecte-dom">
+            document <span class="badge">(Document Object Model)</span>
+          </a>
+        </li>
+        <li>
+          <a href="dom.html#"> DOM nodes , elements i selectors </a>
+        </li>
       </ol>
     </nav>
-    
-    
-   
+    <br /><br /><br />
 
     <hr />
     <article id="dom-introduccio">
@@ -39,27 +46,48 @@
         };
         parlar(text);
         </code></pre>
-        <p>en Aquest <strong>exemple d'introducció:</strong> </p>
-        <nav>
-          <ul>
-          <li>el <span class="badge">navigator</span>  és dona formaciona del navigator en el que se executa el code</li>
-          <li>La <span class="badge">Geolocation</span> interfície representa un objecte capaç d'obtenir la posició del dispositiu mitjançant programació. Dóna accés al contingut web a la ubicació del dispositiu. Això permet que un lloc web o una aplicació ofereixi resultats personalitzats en funció de la ubicació de l'usuari.</li>
-          <li>L'objecte DOM proporciona accés a l'historial del navegador a través de l'objecte <span class="badge">history </span> </li>
-          <li><span class="badge">Location</span> representa la ubicació (URL) de l'objecte al qual està enllaçat</li>
-          <li><span class="badge">localStorageet</span> permet accedir a l'objecte local Storage; les dades persisteixen emmagatzemades entre les diferents sessions de navegació</li>
-          <li><span class="badge">Document</span>representa qualsevol pàgina web carregada al navegador i serveix com a punt d'entrada al contingut de la pàgina web</li>
+      <p>en Aquest <strong>exemple d'introducció:</strong></p>
+      <nav>
+        <ul>
+          <li>
+            el <span class="badge">navigator</span> és dona formaciona del
+            navigator en el que se executa el code
+          </li>
+          <li>
+            La <span class="badge">Geolocation</span> interfície representa un
+            objecte capaç d'obtenir la posició del dispositiu mitjançant
+            programació. Dóna accés al contingut web a la ubicació del
+            dispositiu. Això permet que un lloc web o una aplicació ofereixi
+            resultats personalitzats en funció de la ubicació de l'usuari.
+          </li>
+          <li>
+            L'objecte DOM proporciona accés a l'historial del navegador a través
+            de l'objecte <span class="badge">history </span>
+          </li>
+          <li>
+            <span class="badge">Location</span> representa la ubicació (URL) de
+            l'objecte al qual està enllaçat
+          </li>
+          <li>
+            <span class="badge">localStorageet</span> permet accedir a l'objecte
+            local Storage; les dades persisteixen emmagatzemades entre les
+            diferents sessions de navegació
+          </li>
+          <li>
+            <span class="badge">Document</span>representa qualsevol pàgina web
+            carregada al navegador i serveix com a punt d'entrada al contingut
+            de la pàgina web
+          </li>
           <li>el ultim exemple és per Passar text a veu</li>
         </ul>
-        </nav>
-        <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
+      </nav>
+      <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
     </article>
-
+    <br /><br />
     <hr />
     <article id="Objecte-dom">
       <h2>Objecte DOM</h2>
-      <p>
-        
-      </p>
+      <p></p>
       <pre><code class="language-javascript">
         console.log(document);
         console.log(document.head);
@@ -70,6 +98,11 @@
         console.log(document.links);
         console.log(document.styleSheets);
         console.log(document.scripts);
+        //obtener el que seleccione el usuari de la pagina i sexecuta amb el tiemout després de 3 sec i lo converteix a un String
+        setTimeout(() => {
+          console.log(document.getSelection().toString());
+        }, 3000);
+
       </code></pre>
       <p>Elements d'Aquest <strong>exemple de document:</strong></p>
       <table class="taula">
@@ -82,7 +115,10 @@
         <tbody>
           <tr>
             <td><span class="badge">Document</span></td>
-            <td>Representa qualsevol pàgina web carregada al navegador i serveix com a punt d'entrada al contingut de la pàgina web</td>
+            <td>
+              Representa qualsevol pàgina web carregada al navegador i serveix
+              com a punt d'entrada al contingut de la pàgina web
+            </td>
           </tr>
           <tr>
             <td><span class="badge">document.head</span></td>
@@ -98,7 +134,10 @@
           </tr>
           <tr>
             <td><span class="badge">document.characterSet</span></td>
-            <td>Retorna la codificació de caràcters (conjunt de caràcters) usat al document ex UTF-8</td>
+            <td>
+              Retorna la codificació de caràcters (conjunt de caràcters) usat al
+              document ex UTF-8
+            </td>
           </tr>
           <tr>
             <td><span class="badge">document.title</span></td>
@@ -106,11 +145,17 @@
           </tr>
           <tr>
             <td><span class="badge">document.links</span></td>
-            <td>Devuelve l'element &lt;a&gt; del document actual, que té l'atribut href.</td>
+            <td>
+              Devuelve l'element &lt;a&gt; del document actual, que té l'atribut
+              href.
+            </td>
           </tr>
           <tr>
             <td><span class="badge">document.styleSheets</span></td>
-            <td>Devuelve l'element &lt;style&gt; o link de tipus css  del document actual</td>
+            <td>
+              Devuelve l'element &lt;style&gt; o link de tipus css del document
+              actual
+            </td>
           </tr>
           <tr>
             <td><span class="badge">document.scripts</span></td>
@@ -118,78 +163,107 @@
           </tr>
         </tbody>
       </table>
-      
-        
+
+      <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
+    </article>
+    <br /><br />
+    <hr />
+    <article id="dom-node">
+      <h2>DOM.Node</h2>
+      <p>
+        Un node és una interfície del DOM. Al ser abstracta és una classe base
+        que ens servirà per molts altres objectes Dom de l'API Permetrá que tots
+        els Objectes del Dom, basats en la interfície node, s'utilitzin de
+        format similar fins i tot intercanviable
+      </p>
+      <p>
+        Algunes Classes que implementen la interfície node són :Document,Element
+        i DocumentFragement.
+      </p>
+
+      <h3>Tipus de nodes:</h3>
+      <ul>
+        <li>Node.ELEMENT_NODE</li>
+        <li>Node.ATTRIBUT_NODE</li>
+        <li>Node.TEXT_NODE</li>
+        <li>Node.CDATA_SETCTION_NODE</li>
+        <li>Node.SECTION_NODE</li>
+        <li>Node.PROCESSIN_INSTUCTION_NODE</li>
+        <li>Node.COMMENT_NODE</li>
+        <li>Node.DOCUMENT_NODE</li>
+        <li>Node.DOCUMENT_TYPE_NODE</li>
+        <li>Node.DOCUMENT_FRAGMENT_NODE</li>
+      </ul>
+      <!--<del>tatxat</del>-->
+      <p>Mètodes del DOM per Capturar ELEMENTs</p>
+      <ul>
+        <li><del>getelementByTagName()</del></li>
+        <li><del>getelementByClassName()</del></li>
+        <li><del>getelementByName()</del></li>
+        <li>getElementById()</li>
+      </ul>
+      <strong>Exemple de les métodes</strong>
+      <pre><code class="language-javascript">
+      //Metodes per Capturar elements
+      //obtener element amb el nom de la etiqueta
+      console.log(document.getElementsByTagName("li"));
+      //obtener el element amb el nom de la class
+      console.log(document.getElementsByClassName("card"));
+      // obtener el element amb el atribut de la etiqueta en aquest Cas el nom
+      console.log(document.getElementsByName("nom"));
+      //Obtener elements amb el id de la tiqueta Html
+      console.log(document.getElementById("menu"));
+      </code></pre>
+
+      <h3>
+        Com Seleccionar elements. Utilitzarem només les següents funcions:
+      </h3>
+      <ol>
+        <li>querySelector()</li>
+        <li>queryselectorAll()</li>
+        <li>getElementById()</li>
+      </ol>
+      <div class="nota">
+        NOTA: una etiqueta HTMl en javascript és un element, no un node.
+      </div>
+
+      <div class="important">
+        IMPORTANT: LES MÉTODES PER CAPTURAR ELEMENTS QUEDEN SUBSTITUIDES PER ELS
+        DE querySelector per qué és universal se podria qualsevol element o
+        atribut id ....
+      </div>
+
+      <pre><code class="language-javascript" id="javscript">
+        // queden substituides per
+      console.log("utilitzant query Selector");
+      console.log(document.querySelector("#menu"));
+      console.log(document.querySelector("a"));
+      console.log(document.querySelectorAll("a"));
+      console.log(document.querySelector(".card"));
+      console.log(document.querySelectorAll(".card"));
+      </code></pre>
+
       <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
     </article>
 
-
-
-
-
-<br><br><br><br><br><br><br><br><br><br>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <hr />
     <article id="Objecte-dom">
       <h2></h2>
-      <p>
-      </p>
+      <p></p>
       <pre><code class="language-javascript">
 
       </code></pre>
-        
+
       <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
     </article>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    <script>
-      /*
-      console.log(navigator);
-      console.log(Geolocation);
-      console.log(history);
-      console.log(location);
-      console.log(localStorage);
-      console.log(document);
-      let text = "Good ";
-        const parlar = (text) => {
-        speechSynthesis.speak(new SpeechSynthesisUtterance(text));
-      };
-      parlar(text);*/
-    </script>
     <script src="js/script.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-<script>
-  hljs.initHighlightingOnLoad();
-</script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
   </body>
 </html>

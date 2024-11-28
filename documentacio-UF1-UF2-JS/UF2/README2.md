@@ -21,6 +21,7 @@
   - [Call](#call)
   - [Apply](#apply)
   - [bind](#bind)
+-[this](#this-en-javascript)
 - [JSON EN JAVASCRIPT](#json-en-javascript)
 - [CLASSES EN JS](#classes-en-js)
     - [Classes i herrència](#classes-i-herrència)
@@ -425,6 +426,14 @@ const pepe = {
 };
 pepe.saludar();
 pepe.fersoroll();
+
+//el this en un arrow function fa la crida el window (fa el hosting per i busca el window)
+// COMPTE NO UTILIZAR ARROW FUNCTIONS ALS OBJECTES (perque l'ambit fa un hosting a l'objecte window )
+      const gos2 = {
+        nom: "negra",
+        bordar: () => console.log(this),
+      };
+      gos2.bordar();
 ```
 
 ---

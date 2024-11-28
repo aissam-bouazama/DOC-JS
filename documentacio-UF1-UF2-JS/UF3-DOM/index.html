@@ -6,33 +6,172 @@
     <!--esils externs-->
     <link rel="stylesheet" href="css/estils.css" />
     <title>Web APIs</title>
+    
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" rel="stylesheet">
+    
   </head>
   <body>
     <h1 id="index-DOM">WEB APIs</h1>
-    <a href="index.html#dom-introduccio">introducció</a><br />
+    <nav>
+      <ol>
+        <li><a href="index.html#dom-introduccio">introducció</a></li>
+        <li> <a href="index.html#Objecte-dom">Objecte DOM <span class="badge">(Document Object Model)</span></a></li>
+      </ol>
+    </nav>
+    
+    
+   
 
     <hr />
     <article id="dom-introduccio">
       <h2>Introducció</h2>
       <p></p>
-      <button class="my-button">
-        <a href="index.html#index-DOM">☝🏼tornar-index</a>
-      </button>
+      <pre><code class="language-javascript">
+        console.log(navigator);
+        console.log(Geolocation);
+        console.log(history);
+        console.log(location);
+        console.log(localStorage);
+        console.log(document);
+        let text = "Good ";
+          const parlar = (text) => {
+          speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+        };
+        parlar(text);
+        </code></pre>
+        <p>en Aquest <strong>exemple d'introducció:</strong> </p>
+        <nav>
+          <ul>
+          <li>el <span class="badge">navigator</span>  és dona formaciona del navigator en el que se executa el code</li>
+          <li>La <span class="badge">Geolocation</span> interfície representa un objecte capaç d'obtenir la posició del dispositiu mitjançant programació. Dóna accés al contingut web a la ubicació del dispositiu. Això permet que un lloc web o una aplicació ofereixi resultats personalitzats en funció de la ubicació de l'usuari.</li>
+          <li>L'objecte DOM proporciona accés a l'historial del navegador a través de l'objecte <span class="badge">history </span> </li>
+          <li><span class="badge">Location</span> representa la ubicació (URL) de l'objecte al qual està enllaçat</li>
+          <li><span class="badge">localStorageet</span> permet accedir a l'objecte local Storage; les dades persisteixen emmagatzemades entre les diferents sessions de navegació</li>
+          <li><span class="badge">Document</span>representa qualsevol pàgina web carregada al navegador i serveix com a punt d'entrada al contingut de la pàgina web</li>
+          <li>el ultim exemple és per Passar text a veu</li>
+        </ul>
+        </nav>
+        <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
     </article>
 
     <hr />
-    <article id="">
-      <h2>Objecte document</h2>
+    <article id="Objecte-dom">
+      <h2>Objecte DOM</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quod
-        tempora cum incidunt tenetur recusandae, ex molestiae repellendus quia
-        odio. Incidunt libero impedit quis nihil quo voluptatibus rerum sint
-        corrupti.
+        
       </p>
-      <button class="my-button">
-        <a href="index.html#index-DOM">☝🏼tornar-index</a>
-      </button>
+      <pre><code class="language-javascript">
+        console.log(document);
+        console.log(document.head);
+        console.log(document.body);
+        console.log(document.documentElement);
+        console.log(document.characterSet);
+        console.log(document.title);
+        console.log(document.links);
+        console.log(document.styleSheets);
+        console.log(document.scripts);
+      </code></pre>
+      <p>Elements d'Aquest <strong>exemple de document:</strong></p>
+      <table class="taula">
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Descripció</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge">Document</span></td>
+            <td>Representa qualsevol pàgina web carregada al navegador i serveix com a punt d'entrada al contingut de la pàgina web</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.head</span></td>
+            <td>Devuelve l'element &lt;head&gt; del document actual..</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.body</span></td>
+            <td>Devuelve l'element &lt;body&gt; del document actual..</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.documentElement</span></td>
+            <td>Devuelve l'element &lt;html&gt; als documents HTML</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.characterSet</span></td>
+            <td>Retorna la codificació de caràcters (conjunt de caràcters) usat al document ex UTF-8</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.title</span></td>
+            <td>Devuelve l'element &lt;title&gt; del document actual..</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.links</span></td>
+            <td>Devuelve l'element &lt;a&gt; del document actual, que té l'atribut href.</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.styleSheets</span></td>
+            <td>Devuelve l'element &lt;style&gt; o link de tipus css  del document actual</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.scripts</span></td>
+            <td>Devuelve l'element &lt;script&gt; del document actual</td>
+          </tr>
+        </tbody>
+      </table>
+      
+        
+      <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
     </article>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+    <hr />
+    <article id="Objecte-dom">
+      <h2></h2>
+      <p>
+      </p>
+      <pre><code class="language-javascript">
+
+      </code></pre>
+        
+      <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
+    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
     <script>
       /*
       console.log(navigator);
@@ -48,5 +187,9 @@
       parlar(text);*/
     </script>
     <script src="js/script.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
   </body>
 </html>

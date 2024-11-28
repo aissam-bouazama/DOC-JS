@@ -21,7 +21,7 @@
   - [Call](#call)
   - [Apply](#apply)
   - [bind](#bind)
--[this](#this-en-javascript)
+- [this](#this-en-javascript)
 - [JSON EN JAVASCRIPT](#json-en-javascript)
 - [CLASSES EN JS](#classes-en-js)
     - [Classes i herrència](#classes-i-herrència)

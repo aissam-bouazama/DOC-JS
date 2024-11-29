@@ -4,24 +4,27 @@
 body {
   font-family: "Courier New";
 }
-h1,
-h2 {
+h1,h2 {
   text-align: center;
+  background-color: #0078d7;
+  color: white;
+  margin-top: 0;
 }
 
 .button {
-  padding: 5px 20px;
-  background-color: #4caf50;
+  padding: 11px 20px;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
-  margin-left: 40%;
+  width: 100%;
+  margin-left: 44%;
 }
 .button:hover {
-  background-color: #45a049;
+  background-color: #0078d7;
 }
 .button:active {
-  background-color: #3e8e41;
+  background-color: #0078d7;
 }
 a {
   text-align: center;
@@ -33,20 +36,14 @@ pre {
   border-left: 4px solid #0078d7;
   font-size: 18px;
 }
-code {
-  background-color: rgb(
-    39,
-    35,
-    31
-  ) !important; /*el important és per que la llibreria de code me obliga poasr-lo perqué té també important*/
-}
+
 .badge {
   display: inline-block;
   padding: 2px 10px;
   font-size: 14px;
   font-weight: bold;
   border-radius: 50px;
-  background-color: #48bd65;
+  background-color: #0078d7;
   color: white;
   text-align: center;
 }
@@ -89,12 +86,21 @@ li {
   text-align: center;
   color: rgb(97, 15, 206);
   height: 30px;
-  padding-top: 0.5%;
+  padding-bottom: 2%;
   width: 80%;
   margin-left: 10%;
 }
 .important {
   margin-top: 1%;
   background-color: rgb(245, 243, 152);
-  padding-bottom: 7%;
+  text-align: center;
+  padding-bottom: 2%;
 }
+.menu-navegacio{
+  margin-left: 1.5%;
+  color: red;
+}
+.sub-llist{
+  color: #45a049;
+}
+

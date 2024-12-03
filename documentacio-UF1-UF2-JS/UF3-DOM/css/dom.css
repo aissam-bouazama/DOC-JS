@@ -1,0 +1,31 @@
+/*@import url(estils.css);*/
+:root {
+  --color-primari: rgb(0, 247, 255);
+  --color-secundari: chocolate;
+  --font-size: 16px;
+}
+.caixa-variables-css {
+  background-color: var(--color-primari);
+}
+.card {
+  display: inline-block;
+  background-color: var(--color-primari);
+  color: var(--color-secundari);
+  text-align: center;
+}
+.card figcaption {
+  padding: 1rem;
+}
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.rotate-45 {
+  transform: rotate(45deg);
+}
+.rotate-135 {
+  transform: rotate(135deg);
+}
+.sepia {
+  filter: sepia(1);
+}

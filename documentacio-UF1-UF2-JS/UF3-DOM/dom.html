@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM nodes , elements i selectors</title>
-    <link rel="stylesheet" href="css/estils.css">
+
+    <link rel="stylesheet" href="css/dom.css" />
   </head>
   <body>
-    <h1>
-      DOM nodes, elements i selectors
-    </h1>
+    <h1>DOM nodes, elements i selectors</h1>
     <article id="gestio-dom">
       <h2>gestio del DOM</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In cum quis minus animi officiis velit et consequatur magni, quisquam doloribus neque non nostrum esse vero molestiae commodi natus dolor doloremque.</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. In cum quis
+        minus animi officiis velit et consequatur magni, quisquam doloribus
+        neque non nostrum esse vero molestiae commodi natus dolor doloremque.
+      </p>
       <nav id="menu">
         <ul>
           <li><a href="#"></a>secció 1</li>
@@ -22,40 +25,61 @@
           <li><a href="#"></a>secció 5</li>
         </ul>
       </nav>
-      <input type="text" name="nom" placeholder="Intro nom"><br>
-      <a href="dom.html" class="link-dom" data-description="document Object modul">DOM</a>
+      <input type="text" name="nom" placeholder="Intro nom" /><br />
+      <a
+        href="dom.html"
+        class="link-dom"
+        data-description="document Object modul"
+        style="background-color: aqua; color: blueviolet"
+        >DOM</a
+      >
       <section class="cards">
         <figure class="card">
-          <img src="https://picsum.photos/200/200/?random=1" alt="text Alternatiu ">
+          <img
+            src="https://picsum.photos/200/200/?random=1"
+            alt="text Alternatiu "
+            class="opacity-80 rotate-45"
+          />
           <figcaption>imatge1</figcaption>
         </figure>
         <figure class="card">
-          <img src="https://picsum.photos/200/200/?random=2" alt="text Alternatiu ">
+          <img
+            class="sepia rotate-135"
+            src="https://picsum.photos/200/200/?random=2"
+            alt="text Alternatiu "
+          />
           <figcaption>imatge2</figcaption>
         </figure>
-       
-          <figure class="card">
-          <img src="https://picsum.photos/200/200/?random=3" alt="text Alternatiu ">
+
+        <figure class="card">
+          <img
+            src="https://picsum.photos/200/200/?random=3"
+            alt="text Alternatiu "
+          />
           <figcaption>imatge3</figcaption>
         </figure>
 
-       <figure class="card">
-            <img src="https://picsum.photos/200/200/?random=4" alt="imatge de la ">
+        <figure class="card">
+          <img
+            src="https://picsum.photos/200/200/?random=4"
+            alt="imatge de la "
+          />
           <figcaption>imatge4</figcaption>
         </figure>
-         <figure class="card">
-            <img src="https://picsum.photos/200/200/?random=5" alt="imatge de la ">
+        <figure class="card">
+          <img
+            src="https://picsum.photos/200/200/?random=5"
+            alt="imatge de la "
+          />
           <figcaption>imatge4</figcaption>
         </figure>
       </section>
-      <hr>
+      <hr />
       <h2>Atributs i Data-Attributs</h2>
-
-
+      <div class="caixa-variables-css">Caixa de Prova de Variables CSS</div>
       <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
     </article>
 
-
-<script src="js/dom.js"></script>
+    <script src="js/dom.js"></script>
   </body>
 </html>

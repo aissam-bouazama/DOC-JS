@@ -41,3 +41,76 @@ console.log(document.documentElement.getAttribute("lang"));
 
 console.log(document.querySelector(".link-dom").getAttribute("href"));
 console.log(document.querySelector(".link-dom").href);
+
+/*Modificar O Afegir valors als Atributs */
+document.documentElement.lang = "es";
+document.documentElement.setAttribute("lang", "en");
+/*posar a la viable que té un valor del DOM un $ al davant */
+/*podem assignar la variable amb let o cons */
+
+//3 de desiembre
+const $linkDom = document.querySelector(".link-dom");
+
+$linkDom.setAttribute("target", "_blank");
+$linkDom.setAttribute("rel", "noopener");
+$linkDom.setAttribute("href", "https://www.google.com");
+
+/*Existeix l'atribut */
+console.log($linkDom.hasAttribute("rel"));
+/*esborrar attribut */
+$linkDom.removeAttribute("rel");
+console.log($linkDom.hasAttribute("rel"));
+
+/*data-atributes */
+
+console.log($linkDom.getAttribute("data-description"));
+/*tots els data-atributs s¡emmagtzeme en un mapa anomenat "Data Set" */
+console.log($linkDom.dataset);
+/*com gestionem els data-atributes  */
+/*el data- no fa falta  */
+console.log($linkDom.dataset.description);
+
+$linkDom.setAttribute("data-description", "model de objecte del document");
+console.log($linkDom.dataset.description);
+/*per canviar el valor de un data-atribute */
+$linkDom.dataset.description = "Nova description";
+console.log($linkDom.dataset.description);
+console.log($linkDom.hasAttribute("data-description"));
+
+console.log($linkDom.getAttribute("style"));
+console.log($linkDom.style);
+console.log($linkDom.style.backgroundColor);
+
+/*Compte amb la sintaxi camel code en css estan separats per -!! 
+la propietat css s'escriu background-color
+CSS styleDeclaration o accedem amb el punt "." uilitza notació camel code
+el valor entre comitas s'hauria d'utilitzar "-" per els propietats
+ */
+console.log(window.getComputedStyle($linkDom).backgroundColor);
+console.log(
+  window.getComputedStyle($linkDom).getPropertyValue("background-color")
+);
+/*retorna els estils aplicats per el link dom */
+console.log(window.getComputedStyle($linkDom));
+
+//variables css
+/*
+console.log("*****variables de css");
+const $html = document.documentElement,
+  $body = document.body;
+let varPrimariColor =
+    getComputedStyle($html).getPropertyValue("--color-primari"),
+  varSecundariColor =
+    getComputedStyle($html).getPropertyValue("--color-secundari");
+console.log(varPrimariColor, varSecundariColor);
+
+$body.style.backgroundColor = varSecundariColor;
+$html.style.setProperty("--color-primari", "pink");
+varPrimariColor = getComputedStyle($html).getPropertyValue("--color-primari");
+$body.style.setProperty("--color-primari", varPrimariColor);*/
+
+const $card = document.querySelector(".card");
+console.log($card.className);
+
+//accedir a les propietats css
+//toggle

@@ -114,3 +114,41 @@ console.log($card.className);
 
 //accedir a les propietats css
 //toggle
+//és un interruptor. si té la classe la treu ,si no la té la pasa
+//de una altra manera comproba si existe si el trobe lo treure i si no existe no lo pose
+// 4 de desiembre
+console.log("****toogle*****");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+//$card.classList.toggle("rotate-45");
+
+//replace
+$card.classList.replace("rotate-45", "rotate-135");
+//add
+$card.classList.add("opacity-80", "sepia");
+$card.classList.remove("opacity-80", "sepia");
+//permet no més un paramtre de valor tring
+$card.classList.toggle("opacity-80");
+$card.classList.toggle("sepia");
+
+//gestion de text
+/*com interactuar amb el contingut textual i Html de un element */
+
+const $caption2 = document.querySelector(".caption2");
+/*inner Text i innerContent no Respecte indentacions , i tampoc  interpreta els tags HTML */
+//no és estandard
+$caption2.innerText = "és la caption 2";
+//propietat estandard
+$caption2.textContent = "és <b> la </b> caption 22";
+//si volem que s'interprete els tags HTML hem d'utilitzar innerHTML
+$caption2.innerHTML = "és la <b>caption</b> 2";
+//estamos aqui
+const text = `<p id="outerHTML">
+      <p>primer</p>
+      <p>segon</p>
+      <p>tercer</p>
+      </p>`;
+$caption2.innerText = text;
+//$caption2.outerHTML = text;
+//console.log($text.getAttribute("#outerHTML"));

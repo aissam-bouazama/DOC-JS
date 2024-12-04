@@ -136,7 +136,7 @@ $card.classList.toggle("sepia");
 /*com interactuar amb el contingut textual i Html de un element */
 
 const $caption2 = document.querySelector(".caption2");
-/*inner Text i innerContent no Respecte indentacions , i tampoc  interpreta els tags HTML */
+/*inner Text i innerContent  Respecte indentacions , peró no  interpreta els tags HTML */
 //no és estandard
 $caption2.innerText = "és la caption 2";
 //propietat estandard
@@ -144,11 +144,14 @@ $caption2.textContent = "és <b> la </b> caption 22";
 //si volem que s'interprete els tags HTML hem d'utilitzar innerHTML
 $caption2.innerHTML = "és la <b>caption</b> 2";
 //estamos aqui
+//per el inner text s'hauria de posar-les entre templates
 const text = `<p id="outerHTML">
-      <p>primer</p>
+      <p>&nbsp primer</p>
       <p>segon</p>
       <p>tercer</p>
       </p>`;
+/*inner Text i innerContent  Respecte indentacions , peró no  interpreta els tags HTML */
+//no és estandard
 $caption2.innerText = text;
 //$caption2.outerHTML = text;
 //console.log($text.getAttribute("#outerHTML"));

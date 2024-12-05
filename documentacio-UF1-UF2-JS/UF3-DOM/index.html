@@ -13,29 +13,48 @@
     />
   </head>
   <body>
-    <h1 id="index-DOM">WEB APIs</h1>
-    <nav class="menu-navegacio">
-      <ol type="I">
-        <li><a href="index.html#dom-introduccio">introducció</a></li>
+    <article class="menu">
+      <h1 id="index-DOM">WEB APIs</h1>
+      <nav class="menu-navegacio">
+        <ol type="I">
+          <li><a href="index.html#dom-introduccio">introducció</a></li>
+          <li>
+            <a href="index.html#Objecte-dom">
+              document <span class="badge">(Document Object Model)</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#dom-node"> DOM nodes , elements i selectors </a>
+          </li>
+          <ol class="sub-llist">
+            <li>
+              <a href="dom.html#" class="sub-llist">
+                Exemples DOM nodes , elements i selectors per veure els resultats
+                'F12'</a
+              >
+            </li>
+        </ol>
         <li>
-          <a href="index.html#Objecte-dom">
-            document <span class="badge">(Document Object Model)</span>
-          </a>
-        </li>
-        <li>
-          <a href="index.html#dom-node"> DOM nodes , elements i selectors </a>
+          <a href="index.html#AttributsDataAtrributs">Attributs i data-Attributs</a>
         </li>
         <ol class="sub-llist">
           <li>
-            <a href="dom.html#" class="sub-llist">
-              Exemples DOM nodes , elements i selectors per veure els resultats
-              'F12'</a
+            <a href="index.html#attributs" class="sub-llist">
+             Attributs</a>
+              <ol type="a">
+                  <li><a href="index.html#formes-accedir-atributs" class="sub-llist">formes d'accedir als atributs</a></li>
+                  <li><a href="index.html#afegir-modificar-attributs" class="sub-llist">Exemples de de modificar o afegir valors als Atributs</a></li>
+              </ol>
+          </li>
+          <li>
+            <a href="index.html#data-attributs" class="sub-llist">
+             Data-Attributs</a
             >
           </li>
-        </ol>
       </ol>
-    </nav>
-    <br /><br /><br />
+      
+          </nav>
+    </article>
 
     <hr />
     <article id="dom-introduccio">
@@ -190,7 +209,7 @@
         i DocumentFragement.
       </p>
 
-      <h3>Tipus de nodes:</h3>
+      <h3 class="titol-contingut">Tipus de nodes:</h3>
       <ul>
         <li>Node.ELEMENT_NODE</li>
         <li>Node.ATTRIBUT_NODE</li>
@@ -228,7 +247,7 @@
       console.log(document.getElementById("menu"));
       </code></pre>
 
-      <h3>
+      <h3 class="titol-contingut">
         Com Seleccionar elements. Utilitzarem només les següents funcions:
       </h3>
       <ol>
@@ -262,11 +281,70 @@
     <br /><br />
     <hr />
     <article id="Objecte-dom">
-      <h2></h2>
-      <p></p>
+      <h2 id="AttributsDataAtrributs">Attributs i data-atributs</h2>
+      <h3 id="attributs" class="titol-contingut">I-Attributs</h3>
+      <p>els data atributs son atributs propis que nosaltres podem afegir . ales etiquetes HTML.Només cal afegir un atribut que comenci per "data-"
+        continuació concatenarem</p>
+        <h4 class="sub-titols" id="formes-accedir-atributs">1-formes d'accedir als atributs</h4>
+    
+        <p>hi ha dues formes d'accedir als atributs amb el "." Ex <span class="badge-taronja">document.documentElement.attribut</span> i amb el <span class="badge-taronja">.getAttribute()</span> </p>
+       
       <pre><code class="language-javascript">
-
+    console.log("******** atributs i data-atributs *****");
+    console.log(document.documentElement.lang);
+    console.log(document.documentElement.getAttribute("lang"));
       </code></pre>
+      <ul>
+        <p>la differencia que hi ha entre la notació "." i el getAttribute</p>
+        <li> és amb la notació "." Retorna el valor en temps d'execusio</li>
+        <li>i amb la notació getAttribute només retorna el contingut que té el attribute en temps d'edició</li>
+      </ul>
+      <p><span class="badge-taronja">Exemple</span></p>
+      <pre><code class="language-javascript">
+    /*en Aquest Exemple amb el . retorna tot el contingut en temps d'execusio*/
+    console.log(document.querySelector(".link-dom").getAttribute("href"));
+    console.log(document.querySelector(".link-dom").href);
+      </code></pre>
+      <h4 class="sub-titols" id="afegir-modificar-attributs">2-Exemples de de modificar o afegir valors als Atributs</h4>
+      <p class="important">IMPORTANT: per qualsevol variable que utilitza el DOM s'hauria d'utilitzar el $ abans del nom del variable</p>
+     
+      <pre><code class="language-javascript">
+        /*. i setAttribute*/
+      document.documentElement.lang = "es";
+      document.documentElement.setAttribute("lang", "en");
+      //exemple de un variable que utilitza el DOM
+      const $linkDom = document.querySelector(".link-dom");
+      $linkDom.setAttribute("target", "_blank");
+      $linkDom.setAttribute("rel", "noopener");
+      $linkDom.setAttribute("href", "https://www.google.com");
+      
+      /*Per Compraobar si Existeix l'atribut */
+      console.log($linkDom.hasAttribute("rel"));
+      /*Per esborrar l'attribut */
+      $linkDom.removeAttribute("rel");
+      console.log($linkDom.hasAttribute("rel"));
+      </code></pre>
+      <table class="taula">
+      <thead>
+        <tr>
+          <th>Métode</th>
+          <th>Descripció</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge">.hasAttribut("att")</span></td>
+          <td>per Comprobar si existeix algun Attribut si existeix retorna true si no false.</td>
+        </tr>
+        <tr>
+          <td><span class="badge">.removeAttribute("att")</span></td>
+          <td>esborrar Attribut</td>
+        </tr>
+          </tbody>
+        </table>
+
+        <h3 id="data-attributs" class="titol-contingut">II- Data Attributs</h3>
+      
 
       <a href="index.html#index-DOM" class="button">☝🏼Tornar a l'índex</a>
     </article>
@@ -285,9 +363,9 @@
 
     <script src="js/script.js"></script>
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
-    <!-- and it's easy to individually load additional languages -->
+    <!-- and it's easy to individually load additional languages 
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
-    <script>
+    --><script>
       hljs.initHighlightingOnLoad();
     </script>
   </body>

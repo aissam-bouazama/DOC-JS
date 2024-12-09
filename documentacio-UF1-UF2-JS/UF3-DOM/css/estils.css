@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  margin-bottom: 0;
 }
 body {
   font-family: "Courier New";
@@ -13,6 +14,8 @@ body {
   background-position: center top;
   background-attachment: fixed;
 }*/
+
+
 h1,h2 {
   text-align: center;
   background-color: #0078d7;
@@ -21,13 +24,14 @@ h1,h2 {
 }
 
 .button {
-  padding: 11px 20px;
+  padding: 11px 50px;
   background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
-  width: 100%;
-  margin-left: 44%;
+  margin-left: 42%;
+  margin-bottom: 8px;
+  cursor: pointer;
 }
 .button:hover {
   background-color: #0078d7;
@@ -44,6 +48,7 @@ a {
 pre {
   border-left: 4px solid #0078d7;
   font-size: 18px;
+  margin-bottom: 8px;
 }
 
 .badge,.badge-taronja {
@@ -124,4 +129,12 @@ li {
   color: red;
 }
 
-
+.footer {
+  width:100%;
+  position:relative;
+  display:block;
+  padding:8x;
+  color:#eee;
+  text-align: center;
+  background: linear-gradient(#3d50c0, #2b44b4);
+}

@@ -138,20 +138,127 @@ $card.classList.toggle("sepia");
 const $caption2 = document.querySelector(".caption2");
 /*inner Text i innerContent  Respecte indentacions , peró no  interpreta els tags HTML */
 //no és estandard
-$caption2.innerText = "és la caption 2";
+$caption2.innerText = `és la caption 2`;
 //propietat estandard
-$caption2.textContent = "és <b> la </b> caption 22";
+$caption2.textContent = `és <b> la </b> caption 22`;
 //si volem que s'interprete els tags HTML hem d'utilitzar innerHTML
-$caption2.innerHTML = "és la <b>caption</b> 2";
+$caption2.innerHTML = `és la <b>caption</b> 2`;
 //estamos aqui
 //per el inner text s'hauria de posar-les entre templates
-const text = `<p id="outerHTML">
-      <p>&nbsp primer</p>
-      <p>segon</p>
-      <p>tercer</p>
-      </p>`;
-/*inner Text i innerContent  Respecte indentacions , peró no  interpreta els tags HTML */
-//no és estandard
-$caption2.innerText = text;
-//$caption2.outerHTML = text;
-//console.log($text.getAttribute("#outerHTML"));
+//10 de desiembre
+const $textDOM = document.querySelector("#outerHTML");
+let text = `<p>
+El model d'Objectes del Document (<b><i>DOM - Document Object Model</i></b>)és un API per a documents HTML i XML.
+</p>
+<p>
+Facilita una representació estructural del document, permetent modificar el seu contingut i presentació visual mitjançant codi JS
+</p>
+<p>
+<mark> El DOM no és part de l'especificació de JavaScript, és una API per als navegadors</mark>
+</p>`;
+/*inner Text   Respecte indentacions i tabulacions, peró no  interpreta els tags HTML */
+/*inner text no és estaàndard . ës va crear per al navegador IE */
+
+$textDOM.innerText = text;
+/*la propietat estàndard textContent No respecte indentacion ni tabulacions i no  interpreta els tags HTML */
+$textDOM.innerContent = text;
+
+/*innerHTML s'intrpreten els tags HTML */
+$textDOM.innerHTML = text;
+
+/*outerHTML s'intrpreten els tags HTML  treu el tag seleccionat i posat el que donem */
+$textDOM.outerHTML = text;
+
+/*DOM Traverssing */
+
+const $cards = document.querySelector(".cards");
+console.log($cards);
+console.log($cards.children);
+console.log($cards.children[0]);
+//estem acceden als elemens
+console.log($cards.parentElement);
+console.log($cards.firstElementChild);
+//accedem als Nodes
+//el primer fil node és un return
+console.log($cards.childNodes);
+console.log($cards.lastChild);
+console.log($cards.previousElementSibling);
+console.log($cards.previousSibling);
+
+//afegir i crear dínamicament elements i fragments
+//Crear un element (card)
+const $figure = document.createElement("figure"),
+  $img = document.createElement("img"),
+  $figcaption = document.createElement("figcaption"),
+  $figcaptionText = document.createTextNode("Imatge 6");
+
+//ara que ja tenim la nova <figure afegirem interactivament etiquetes al DOM
+//segona opcion
+
+$img.setAttribute("alt", "random6");
+$img.setAttribute("src", "https://picsum.photos/200/200/?random=6");
+$figcaption.appendChild($figcaptionText);
+//crear elements
+$cards.appendChild($figure).appendChild($img);
+$figure.appendChild($figcaption);
+//Afegir class a figure
+$figure.classList.add("card");
+const $figure2 = document.createElement("figure");
+$figure2.innerHTML = ` <img
+            src="https://picsum.photos/200/200/?random=7"
+            alt="imatge de la "
+          />
+          <figcaption>imatge7</figcaption>`;
+$figure2.classList.add("card");
+$cards.appendChild($figure2);
+
+/*qué pass si volem molts nodes de cop */
+//cada cop que fem un appendchild té un cost considerable al document HTM.
+// Aixó pot fer  Qué si inserim centenar de tags html la pàgina quedi bloquejada o  congelada
+//ESTRATEGIA: utilitzarem fragments!
+/*volem crear molts nodes de cop  */
+//primera opcio opció no optimizada
+const estacion = ["Primavera", "estiu", "Hivern", "tardor"];
+const $ul = document.createElement("ul");
+document.write("<h3> Estacions de l'any </h3>");
+document.body.appendChild($ul);
+estacion.forEach((el) => {
+  const $li = document.createElement("li");
+  $li.textContent = el;
+  $ul.appendChild($li);
+});
+
+//SEGONA OPCIÓ NO OPTIMIZADA
+const continents = ["Àfrica", "Europa", "Amèrica", "Ocenaia", "assia"];
+const $ul2 = document.createElement("ul");
+document.write("<h3> Continents del mon</h3>");
+document.body.appendChild($ul2);
+$ul2.innerHTML = "";
+continents.forEach((el) => ($ul2.innerHTML += `<li>${el}</li>`));
+//TERCERA opció Optimizada!
+/*Es tracta de crear fragments del dom i treballar amb aquestes fragments i al final afegirem el fragment al DOM */
+const mesos = [
+  "gener",
+  "febrer",
+  "març",
+  "abril",
+  "maig",
+  "juny",
+  "juliol",
+  "agost",
+  "setembre",
+  "octubre",
+  "novembre",
+];
+
+const $element = document.getElementById("ul"); // assuming ul exists
+var fragment = document.createDocumentFragment();
+var browsers = ["Firefox", "Chrome", "Opera", "Safari", "Internet Explorer"];
+
+browsers.forEach(function (browser) {
+  var li = document.createElement("li");
+  li.textContent = browser;
+  fragment.appendChild(li);
+});
+
+$element.appendChild(fragment);

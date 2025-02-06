@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+.diapo-1,
+.diapo-2,
+.diapo-3,
+.diapo-4,
+.diapo-5 {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  padding: 30px;
+  font-family: "Courier New";
+  margin-top: -16px;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.diapo-1 {
+  background-color: aqua;
+  margin-top: 0px;
+  top: -10px;
+}
+.diapo-2 {
+  background-color: chartreuse;
+}
+.diapo-3 {
+  background-color: burlywood;
+}
+.diapo-4 {
+  background-color: darkorange;
+}
+.diapo-5 {
+  background-color: blanchedalmond;
+}

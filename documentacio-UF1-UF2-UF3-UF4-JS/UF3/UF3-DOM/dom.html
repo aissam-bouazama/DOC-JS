@@ -18,21 +18,38 @@
       </p>
       <nav id="menu">
         <ul>
-          <li><a href="#"></a>secció 1</li>
-          <li><a href="#"></a>secció 2</li>
-          <li><a href="#"></a>secció 3</li>
-          <li><a href="#"></a>secció 4</li>
-          <li><a href="#"></a>secció 5</li>
+          <li>
+            <a href="#"></a>
+            secció 1
+          </li>
+          <li>
+            <a href="#"></a>
+            secció 2
+          </li>
+          <li>
+            <a href="#"></a>
+            secció 3
+          </li>
+          <li>
+            <a href="#"></a>
+            secció 4
+          </li>
+          <li>
+            <a href="#"></a>
+            secció 5
+          </li>
         </ul>
       </nav>
-      <input type="text" name="nom" placeholder="Intro nom" /><br />
+      <input type="text" name="nom" placeholder="Intro nom" />
+      <br />
       <a
         href="dom.html"
         class="link-dom"
         data-description="document Object modul"
         style="background-color: aqua; color: blueviolet"
-        >DOM</a
       >
+        DOM
+      </a>
       <section class="cards">
         <figure class="card">
           <img
@@ -71,7 +88,7 @@
             src="https://picsum.photos/200/200/?random=5"
             alt="imatge de la "
           />
-          <figcaption>imatge4</figcaption>
+          <figcaption>imatge5</figcaption>
         </figure>
       </section>
       <hr />
@@ -88,8 +105,31 @@
         appendchild() que afegeix elements al final del selector objectiu
       </p>
     </article>
-
     <ul id="id"></ul>
+    <h2>Template HTML</h2>
+    <p>
+      A partir d'html 5l'etiqueta "&lt;template&gt;". Permet estructura l'html i
+      mitjançant Javascript és converteix S'utilitza en combinació amb els
+      fragments del DOM i és una altra forma d'interactuar eficient amb el DOM
+    </p>
+    <p>
+      la etiqueta template la podem veure en la finestra "en viu" o "element" de
+      les eines peró no té efectes visuals a la página web. No es renderitza al
+      DOM. l'etiqueta temnplate serveix per fer un model i apartir d'ell generar
+      estructures DOM dinàmicament.
+    </p>
+
+    <template id="template-card">
+      <figure class="card">
+        <img />
+        <figcaption></figcaption>
+      </figure>
+    </template>
+
+    <!--
+    Métodes que ens permtran afegir elements al principi , al final o en una posició oncreta.Ens recolzarem amb les propietats del DOM trversi per Aconseguir
+    -->
+
     <script src="js/dom.js"></script>
   </body>
 </html>

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--esils externs-->
+    <link rel="stylesheet" href="css/estils.css" />
+    <title>DOM</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+   
+    <article class="menu">
+      <h1 id="index-DOM">DOM</h1>
+      <nav class="menu-navegacio">
+        <ol type="I">
+          <li><a href="index.html#dom-introduccio">introducció</a></li>
+          <li>
+            <a href="index.html#Objecte-dom">
+              document 
+            </a>
+          </li>
+          <li>
+            <a href="index.html#dom-node"> DOM nodes , elements i selectors </a>
+          </li>
+          <ol class="sub-llist">
+            <li>
+              <a href="dom.html#" class="sub-llist">
+                Exemples DOM nodes , elements i selectors per veure els resultats
+                'F12'</a>
+            </li>
+        </ol>
+        <li>
+          <a href="index.html#AttributsDataAtrributs">Attributs i data-Attributs</a>
+        </li>
+        <details><summary>Detalls</summary> <ol class="sub-llist">
+          <li>
+            <a href="index.html#attributs" class="sub-llist">
+             Attributs</a>
+             
+              <ol type="a">
+                  <li><a href="index.html#formes-accedir-atributs" class="sub-llist">formes d'accedir als atributs</a></li>
+                  <li><a href="index.html#afegir-modificar-attributs" class="sub-llist">Exemples de de modificar o afegir valors als Atributs</a></li>
+              </ol>
+          </li>
+          <li>
+            <a href="index.html#data-attributs" class="sub-llist">
+             Data-Attributs</a>
+             <ol type="a">
+              <li>
+                <a href="index.html#gestio-Atributs" class="sub-llist">com Gestionar els data-atributes</a></li>
+              
+              </ol>
+          </li>
+          
+      </ol>
+    </details>
+    <li>
+      <a href="index.html#css-js" class="llist">
+       gestionar css en js</a>
+       </li>
+       <li>
+        <a href="index.html#toggle" class="llist">
+        Toggle</a>
+        </li>
+        <li>
+        <a href="index.html#text-html" class="llist">
+        Géstio textual i html de un élement</a>
+        </li>
+        <li>
+          <a href="index.html#dom-traverssing" class="llist">DOM traverssing</a>
+        </li>
+        <li>
+          <a href="index.html#elements-fragments" class="llist">DOM Creant elements i fragments</a>
+        </li>
+        <li><a href="index.html#modificar-elements">Modificar elements</a> <details><summary>Detalls</summary>
+          <ol><li><a class="sub-llist" href="index.html#estil-classic">éstil classic</a> </li>
+            <li><a class="sub-llist" href="index.html#Nou-estil">Nou éstil</a> </li></ol>
+        </details> </li>
+        <li><a href="index.html#gestor-events">Gestor d'events</a></li>
+        <details><summary>Detalls</summary>
+          <ol>
+            <li><a class="sub-llist" href="index.html#event">Qué és un event?</a> </li>
+            <li><a class="sub-llist" href="index.html#tipus-events">Tipus d'events</a> </li>
+            <li><a class="sub-llist" href="index.html#removeEvent">Events amb parametres i Remove Events</a> </li></ol>
+        </details> </li>
+        <li> <a href="index.html#flux-event">Flux events - Bombolla i captura</a> </li>
+        
+        
+      
+       
+      
+          </nav>
+    </article>
+
+    <hr />
+    <main class="Contingut">
+    <article id="dom-introduccio">
+      <h2>Introducció</h2>
+
+      <p>en Aquest <strong>exemple d'introducció:</strong></p>
+      <nav>
+        <ul>
+          <li>
+            el <span class="badge">navigator</span> és dona formaciona del
+            navigator en el que se executa el code
+          </li>
+          <li>
+            La <span class="badge">Geolocation</span> interfície representa un
+            objecte capaç d'obtenir la posició del dispositiu mitjançant
+            programació. Dóna accés al contingut web a la ubicació del
+            dispositiu. Això permet que un lloc web o una aplicació ofereixi
+            resultats personalitzats en funció de la ubicació de l'usuari.
+          </li>
+          <li>
+            L'objecte DOM proporciona accés a l'historial del navegador a través
+            de l'objecte <span class="badge">history </span>
+          </li>
+          <li>
+            <span class="badge">Location</span> representa la ubicació (URL) de
+            l'objecte al qual està enllaçat
+          </li>
+          <li>
+            <span class="badge">localStorageet</span> permet accedir a l'objecte
+            local Storage; les dades persisteixen emmagatzemades entre les
+            diferents sessions de navegació
+          </li>
+          <li>
+            <span class="badge">Document</span>representa qualsevol pàgina web
+            carregada al navegador i serveix com a punt d'entrada al contingut
+            de la pàgina web
+          </li>
+          <li>el ultim exemple és per Passar text a veu</li>
+        </ul>
+      </nav>
+      <pre><code class="language-javascript">
+        console.log(navigator);
+        console.log(Geolocation);
+        console.log(history);
+        console.log(location);
+        console.log(localStorage);
+        console.log(document);
+        let text = "Good ";
+          const parlar = (text) => {
+          speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+        };
+        parlar(text);
+        </code></pre>
+
+      
+    </article>
+    <br /><br />
+    <hr />
+    <article id="Objecte-dom">
+      <h2>document</h2>
+      <p></p>
+      <pre><code class="language-javascript">
+        console.log(document);
+        console.log(document.head);
+        console.log(document.body);
+        console.log(document.documentElement);
+        console.log(document.characterSet);
+        console.log(document.title);
+        console.log(document.links);
+        console.log(document.styleSheets);
+        console.log(document.scripts);
+        //obtener el que seleccione el usuari de la pagina i sexecuta amb el tiemout després de 3 sec i lo converteix a un String
+        setTimeout(() => {
+          console.log(document.getSelection().toString());
+        }, 3000);
+
+      </code></pre>
+      <p>Elements d'Aquest <strong>exemple de document:</strong></p>
+      <table class="taula">
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Descripció</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge">Document</span></td>
+            <td>
+              Representa qualsevol pàgina web carregada al navegador i serveix
+              com a punt d'entrada al contingut de la pàgina web
+            </td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.head</span></td>
+            <td>Devuelve l'element &lt;head&gt; del document actual..</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.body</span></td>
+            <td>Devuelve l'element &lt;body&gt; del document actual..</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.documentElement</span></td>
+            <td>Devuelve l'element &lt;html&gt; als documents HTML</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.characterSet</span></td>
+            <td>
+              Retorna la codificació de caràcters (conjunt de caràcters) usat al
+              document ex UTF-8
+            </td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.title</span></td>
+            <td>Devuelve l'element &lt;title&gt; del document actual..</td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.links</span></td>
+            <td>
+              Devuelve l'element &lt;a&gt; del document actual, que té l'atribut
+              href.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.styleSheets</span></td>
+            <td>
+              Devuelve l'element &lt;style&gt; o link de tipus css del document
+              actual
+            </td>
+          </tr>
+          <tr>
+            <td><span class="badge">document.scripts</span></td>
+            <td>Devuelve l'element &lt;script&gt; del document actual</td>
+          </tr>
+        </tbody>
+      </table>
+
+    
+    </article>
+    <br /><br />
+    <hr />
+    <article id="dom-node">
+      <h2>DOM.Node</h2>
+      <p>
+        Un node és una interfície del DOM. Al ser abstracta és una classe base
+        que ens servirà per molts altres objectes Dom de l'API Permetrá que tots
+        els Objectes del Dom, basats en la interfície node, s'utilitzin de
+        format similar fins i tot intercanviable
+      </p>
+      <p>
+        Algunes Classes que implementen la interfície node són :Document,Element
+        i DocumentFragement.
+      </p>
+
+      <h3 class="titol-contingut">Tipus de nodes:</h3>
+      <ul>
+        <li>Node.ELEMENT_NODE</li>
+        <li>Node.ATTRIBUT_NODE</li>
+        <li>Node.TEXT_NODE</li>
+        <li>Node.CDATA_SETCTION_NODE</li>
+        <li>Node.SECTION_NODE</li>
+        <li>Node.PROCESSIN_INSTUCTION_NODE</li>
+        <li>Node.COMMENT_NODE</li>
+        <li>Node.DOCUMENT_NODE</li>
+        <li>Node.DOCUMENT_TYPE_NODE</li>
+        <li>Node.DOCUMENT_FRAGMENT_NODE</li>
+      </ul>
+      <!--<del>tatxat</del>-->
+      <p>Mètodes del DOM per Capturar ELEMENTs</p>
+      <div class="nota">
+        NOTA: Aquestes Métodes queden substituides per el querySelector per qué
+        és Flexible
+      </div>
+      <ul>
+        <li><del>getelementByTagName()</del></li>
+        <li><del>getelementByClassName()</del></li>
+        <li><del>getelementByName()</del></li>
+        <li>getElementById()</li>
+      </ul>
+      <strong>Exemple de les métodes</strong>
+      <pre><code class="language-javascript">
+      //Metodes per Capturar elements
+      //obtener element amb el nom de la etiqueta
+      console.log(document.getElementsByTagName("li"));
+      //obtener el element amb el nom de la class
+      console.log(document.getElementsByClassName("card"));
+      // obtener el element amb el atribut de la etiqueta en aquest Cas el nom
+      console.log(document.getElementsByName("nom"));
+      //Obtener elements amb el id de la tiqueta Html
+      console.log(document.getElementById("menu"));
+      </code></pre>
+
+      <h3 class="titol-contingut">
+        Com Seleccionar elements. Utilitzarem només les següents funcions:
+      </h3>
+      <ol>
+        <li>querySelector()</li>
+        <li>queryselectorAll()</li>
+        <li>getElementById()</li>
+      </ol>
+      <div class="nota">
+        NOTA: una etiqueta HTMl en javascript és un element, no un node.
+      </div>
+
+      <div class="important">
+        IMPORTANT: LES MÉTODES PER CAPTURAR ELEMENTS QUEDEN SUBSTITUIDES PER ELS
+        DE querySelector per qué és Flexible se podria Capturar qualsevol
+        element o atribut id ....
+      </div>
+
+      <pre><code class="language-javascript" id="javscript">
+        // queden substituides per
+      console.log("utilitzant query Selector");
+      console.log(document.querySelector("#menu"));
+      console.log(document.querySelector("a"));
+      console.log(document.querySelectorAll("a"));
+      console.log(document.querySelector(".card"));
+      console.log(document.querySelectorAll(".card"));
+      </code></pre>
+
+     
+    </article>
+
+    <br /><br />
+    <hr />
+    <article id="Objecte-dom">
+      <h2 id="AttributsDataAtrributs">Attributs i data-atributs</h2>
+      <h3 id="attributs" class="titol-contingut">I-Attributs</h3>
+      <p>els data atributs son atributs propis que nosaltres podem afegir . ales etiquetes HTML.Només cal afegir un atribut que comenci per "data-"
+        continuació concatenarem</p>
+        <h4 class="sub-titols" id="formes-accedir-atributs">1-formes d'accedir als atributs</h4>
+    
+        <p>hi ha dues formes d'accedir als atributs amb el "." Ex <span class="badge-taronja">document.documentElement.attribut</span> i amb el <span class="badge-taronja">.getAttribute()</span> </p>
+       
+      <pre><code class="language-javascript">
+    console.log("******** atributs i data-atributs *****");
+    console.log(document.documentElement.lang);
+    console.log(document.documentElement.getAttribute("lang"));
+      </code></pre>
+      <ul>
+        <p>la differencia que hi ha entre la notació "." i el getAttribute</p>
+        <li> és amb la notació "." Retorna el valor en temps d'execusio</li>
+        <li>i amb la notació getAttribute només retorna el contingut que té el attribute en temps d'edició</li>
+      </ul>
+      <p><span class="badge-taronja">Exemple</span></p>
+      <pre><code class="language-javascript">
+    /*en Aquest Exemple amb el . retorna tot el contingut en temps d'execusio*/
+    console.log(document.querySelector(".link-dom").getAttribute("href"));
+    console.log(document.querySelector(".link-dom").href);
+      </code></pre>
+      <h4 class="sub-titols" id="afegir-modificar-attributs">2-Exemples de de modificar o afegir valors als Atributs</h4>
+      <p class="important">IMPORTANT: per qualsevol variable que utilitza el DOM s'hauria d'utilitzar el $ abans del nom del variable</p>
+     
+      <pre><code class="language-javascript">
+        /*. i setAttribute*/
+      document.documentElement.lang = "es";
+      document.documentElement.setAttribute("lang", "en");
+      //exemple de un variable que utilitza el DOM
+      const $linkDom = document.querySelector(".link-dom");
+      $linkDom.setAttribute("target", "_blank");
+      $linkDom.setAttribute("rel", "noopener");
+      $linkDom.setAttribute("href", "https://www.google.com");
+      
+      /*Per Compraobar si Existeix l'atribut */
+      console.log($linkDom.hasAttribute("rel"));
+      /*Per esborrar l'attribut */
+      $linkDom.removeAttribute("rel");
+      console.log($linkDom.hasAttribute("rel"));
+      </code></pre>
+      <table class="taula">
+      <thead>
+        <tr>
+          <th>Métode</th>
+          <th>Descripció</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge">.hasAttribut("att")</span></td>
+          <td>per Comprobar si existeix algun Attribut si existeix retorna true si no false.</td>
+        </tr>
+        <tr>
+          <td><span class="badge">.removeAttribute("att")</span></td>
+          <td>esborrar Attribut</td>
+        </tr>
+          </tbody>
+        </table>
+
+        <h3 id="data-attributs" class="titol-contingut">II- Data Attributs</h3>
+          <p>els data atributs son atributs propis que nosaltres podem afegir . a les etiquetes HTML.Només cal afegir un atribut que comenci per "data-"
+            continuació concatenarem.tots els data-atributs s¡emmagtzeme en un mapa anomenat "Data Set"</p>
+        <h4 class="sub-titols" id="gestio-Atributs">3- com gestionem els data-atributes </h4>
+            <p>PER gestionar els attributs hi ha dues maneres 
+              <dl>
+                <dt>amb la propietat data-set</dt>
+                <dd>Al utilitzar aquesta Propietat no s'hauria d'utilitzar el "data-"</dd>
+                
+                <dt>Amb la propietat getAttribute s'hauria de utilitzar "data-"</dt>
+              </dl>
+              Com Mostra l'exemple següent els dues casos:
+              <pre><code class="language-javascript">
+console.log($linkDom.getAttribute("data-description"));
+/*tots els data-atributs s'emmagtzeme en un mapa anomenat "Data Set" */
+console.log($linkDom.dataset);
+console.log($linkDom.dataset.description);
+$linkDom.setAttribute("data-description", "model de objecte del document");
+console.log($linkDom.dataset.description);
+/*per canviar el valor de un data-atribute */
+$linkDom.dataset.description = "Nova description";
+console.log($linkDom.dataset.description);
+console.log($linkDom.hasAttribute("data-description"));
+              </code></pre>
+            </p>
+    </article>
+    <article id="Objecte-dom">
+      <h2 id="css-js">Gestionar estils CSS en JS</h2>
+      <h3 id="attributs-css" class="titol-contingut">I-Accés als atributs i les variables css en JS</h3>
+      <p>Compte amb la sintaxi camel case en CSS! En CSS, les propietats estan separades per guions, per exemple, <code>background-color</code>, però en JavaScript s'escriuen en camel case, com ara <code>backgroundColor</code>. 
+      Quan accedim a les propietats CSS amb <code>CSSStyleDeclaration</code> o utilitzem la notació de punt, fem servir camel case. 
+      En canvi, quan utilitzem <code>getComputedStyle</code>, no utilitzem guions per accedir a les propietats, però amb <code>getPropertyValue</code> sí que utilitzem guions per accedir a les propietats.
+      </p>
+      <pre><code class="language-javascript">
+console.log(window.getComputedStyle($linkDom).backgroundColor);
+console.log(
+  window.getComputedStyle($linkDom).getPropertyValue("background-color")
+);  
+/*retorna els estils aplicats per el link dom */
+console.log(window.getComputedStyle($linkDom));
+console.log("*****variables de css");
+const $html = document.documentElement,
+  $body = document.body;
+let varPrimariColor =
+    getComputedStyle($html).getPropertyValue("--color-primari"),
+  varSecundariColor =
+    getComputedStyle($html).getPropertyValue("--color-secundari");
+console.log(varPrimariColor, varSecundariColor);
+
+$body.style.backgroundColor = varSecundariColor;
+$html.style.setProperty("--color-primari", "pink");
+varPrimariColor = getComputedStyle($html).getPropertyValue("--color-primari");
+$body.style.setProperty("--color-primari", varPrimariColor);
+      </code></pre>
+      
+      
+      
+    </article>
+    <article id="Objecte-dom">
+      <h2 id="toggle">Toggle</h2>
+      <p>Un interruptor (toggle) és una funció que afegeix o elimina una classe d'un element. Si l'element ja té la classe, la treu; si no la té, l'afegeix. Això permet canviar l'estat d'un element de manera dinàmica.</p>
+      <p>A continuació es mostra un exemple de com utilitzar la funció toggle per afegir o eliminar una classe d'un element:</p>
+      
+      <pre><code class="language-javascript">
+        console.log("****toggle*****");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+//$card.classList.toggle("rotate-45");
+
+//replace
+$card.classList.replace("rotate-45", "rotate-135");
+//add
+$card.classList.add("opacity-80", "sepia");
+$card.classList.remove("opacity-80", "sepia");
+//permet no més un paramtre de valor tring
+$card.classList.toggle("opacity-80");
+$card.classList.toggle("sepia");
+      </code></pre>
+      </article>
+      <article id="Objecte-dom">
+        <h2 id="text-html">Géstió textual i html de un élement</h2>
+        <p></p>
+        <h3 id="innerText" class="titol-contingut">I. <code>innerText</code></h3>
+        <p>
+          <strong>Característiques:</strong>
+          <ul>
+              <li>Respecta les indentacions i tabulacions del contingut.</li>
+              <li>No interpreta ni renderitza etiquetes HTML.</li>
+              <li>No és una propietat estàndard; va ser creada inicialment per a Internet Explorer.</li>
+          </ul>
+      </p>
+    
+
+      <h3 class="titol-contingut">II. <code>textContent</code></h3>
+      <p>
+          <strong>Característiques:</strong>
+          <ul>
+              <li>No respecta indentacions ni tabulacions del contingut.</li>
+              <li>No interpreta ni renderitza etiquetes HTML.</li>
+              <li>És una propietat estàndard i àmpliament compatible.</li>
+          </ul>
+      </p>
+    
+
+    <h3 class="titol-contingut">III. <code>innerHTML</code></h2>
+    <p>
+      <strong>Característiques:</strong>
+      <ul>
+        <li>Interpreta i renderitza les etiquetes HTML presents en el contingut.</li>
+        <li>S'utilitza per inserir o reemplaçar contingut HTML dins de l'element seleccionat.</li>
+      </ul>
+    </p>
+     
+
+    <h3 class="titol-contingut">IV. <code>outerHTML</code></h2>
+    <p>
+      <strong>Característiques:</strong>
+      <ul>
+        <li>Interpreta i renderitza les etiquetes HTML, igual que <code>innerHTML</code>.</li>
+        <li>Substitueix l'element complet (incloent el propi element) pel contingut proporcionat.</li>
+      </ul>
+    </p>
+ 
+        <strong>Exemples:</strong><br>
+     
+        <pre><code class="language-javascript">
+const $caption2 = document.querySelector(".caption2");
+/*inner Text i innerContent  Respecte indentacions , peró no  interpreta els tags HTML */
+//no és estandard
+$caption2.innerText = `és la caption 2`;
+//propietat estandard
+$caption2.textContent = `és &lt;b&gt; la &lt;/b&gt; caption 22`;
+//si volem que s'interprete els tags HTML hem d'utilitzar innerHTML
+$caption2.innerHTML = `és la &lt;b&gt;caption&lt;/b&gt; 2`;
+//estamos aqui
+//per el inner text s'hauria de posar-les entre templates
+//10 de desiembre
+const $textDOM = document.querySelector("#outerHTML");
+let text = `&lt;p&gt;
+El model d'Objectes del Document (&lt;b&gt;&lt;i&gt;DOM - Document Object Model&lt;/i&gt;&lt;/b&gt;)és un API per a documents HTML i XML.
+&lt;/p&gt;
+&lt;p&gt;
+Facilita una representació estructural del document, permetent modificar el seu contingut i presentació visual mitjançant codi JS
+&lt;/p&gt;
+&lt;p&gt;
+&lt;mark&gt; El DOM no és part de l'especificació de JavaScript, és una API per als navegadors&lt;/mark&gt;
+&lt;/p&gt;`;
+/*inner Text   Respecte indentacions i tabulacions, peró no  interpreta els tags HTML */
+/*inner text no és estaàndard . ës va crear per al navegador IE */
+
+$textDOM.innerText = text;
+/*la propietat estàndard textContent No respecte indentacion ni tabulacions i no  interpreta els tags HTML */
+$textDOM.innerContent = text;
+
+/*innerHTML s'intrpreten els tags HTML */
+$textDOM.innerHTML = text;
+
+/*outerHTML s'intrpreten els tags HTML  treu el tag seleccionat i posat el que donem */
+$textDOM.outerHTML = text;
+        </code></pre>
+
+</article>
+<article id="Objecte-dom">
+  <h2 id="dom-traverssing">DOM traverssing</h2>
+  <p>El recorregut del DOM (DOM Traversing) és el procés de navegar a través dels elements i nodes del DOM. Això permet accedir i 
+    manipular elements específics dins de l'estructura del document.</p>
+  <pre><code class="language-javascript">
+const $cards = document.querySelector(".cards");
+console.log($cards);
+console.log($cards.children);
+console.log($cards.children[0]);
+//estem acceden als elemens
+console.log($cards.parentElement);
+console.log($cards.firstElementChild);
+//accedem als Nodes
+//el primer fil node és un return
+console.log($cards.childNodes);
+console.log($cards.lastChild);
+console.log($cards.previousElementSibling);
+console.log($cards.previousSibling);
+  </code></pre>
+  </article>
+
+  <article id="Objecte-dom">
+    <h2 id="elements-fragments">DOM Creant elements i fragments</h2>
+    <h3 class="titol-contingut">I-Crear elements dínamicament</h3>
+    <p>Podem crear elements amb el métode de <span class="badge">.CreateElement("element")</span>
+    , En el següent exemple podem veure com és creant elements de forma dínamica </p>
+    <p class="nota">NOTA: AL CREAR ELEMENTS NO ÉS POSEN DIRECTAMENT AL DOCUMENT</p>
+    <pre><code class="language-javascript">
+//afegir i crear dínamicament elements al DOM
+//Crear un element (card)
+const $figure = document.createElement("figure"),
+  $img = document.createElement("img"),
+  $figcaption = document.createElement("figcaption"),
+  $figcaptionText = document.createTextNode("Imatge 6");
+//ara que ja tenim la nova figure afegirem interactivament etiquetes al DOM
+//segona opcion
+
+$img.setAttribute("alt", "random6");
+$img.setAttribute("src", "https://picsum.photos/200/200/?random=6");
+$figcaption.appendChild($figcaptionText);
+//crear elements
+//$cards.appendChild($figure).appendChild($img);
+$figure.appendChild($figcaption);
+//Afegir class a figure
+$figure.classList.add("card");
+const $figure2 = document.createElement("figure");
+$figure2.innerHTML = ` <img
+            src="https://picsum.photos/200/200/?random=7"
+            alt="imatge de la "
+          />
+          <figcaption>imatge7</figcaption>`;
+$figure2.classList.add("card");
+//$cards.appendChild($figure2);
+    </code></pre>
+    <h3 class="titol-contingut">II-Crear fragments</h3>
+    <p>Què passa si volem molts nodes de cop? Cada cop que fem un appendChild té un cost considerable al document HTML. Això pot fer que si inserim centenars de tags HTML, la pàgina quedi bloquejada o congelada. Estratègia: utilitzarem fragments!</p>
+    <p>Volem crear molts nodes de cop. Primera opció no optimitzada:
+      <br>per veure els resultats <a href="dom.html#estacions">éstacions</a></p> 
+    </p>
+<pre><code class="language-javascript">
+const estacion = ["Primavera", "estiu", "Hivern", "tardor"];
+const $ul = document.createElement("ul");
+document.write("<h3> Estacions de l'any </h3>");
+document.body.appendChild($ul);
+estacion.forEach((el) => {
+const $li = document.createElement("li");
+$li.textContent = el;
+$ul.appendChild($li);
+  });</code></pre>
+  <p>Segona opció no optimizada resultat <a href="dom.html#continents">Continents</a> </p>
+  <pre><code class="language-javascript">const continents = ["Àfrica", "Europa", "Amèrica", "Ocenaia", "assia"];
+    const $ul2 = document.createElement("ul");
+    $ul2.setAttribute("id", "continents");	
+    document.write("<h3> Continents del mon</h3>");
+    document.body.appendChild($ul2);
+    $ul2.innerHTML = "";
+    continents.forEach((el) => ($ul2.innerHTML += `<li>${el}</li>`));</code></pre>
+   <p>TERCERA opció Optimizada!
+    Es tracta de crear fragments del dom i treballar amb aquestes fragments i al final afegirem el fragment al DOM 
+    résultat <a href="dom.html#mesos">Mesos</a> </p>
+  </p>
+    <pre><code class="language-javascript">const mesos = [
+      "gener",
+      "febrer",
+      "març",
+      "abril",
+      "maig",
+      "juny",
+      "juliol",
+      "agost",
+      "setembre",
+      "octubre",
+      "novembre",
+      "desembre",
+    ];
+    const $ul3 = document.createElement("ul"),
+      $fragment = document.createDocumentFragment();
+    /*no podem utilitzar innerHTMl en fragments! (els fragments són nodes)*/
+    mesos.forEach((element) => {
+      const $li = document.createElement("li");
+      $li.textContent = element;
+      $fragment.appendChild($li);
+    });
+    document.write("<h3>MESOS DE L'ANY</h3>");
+    $ul3.appendChild($fragment);
+    document.body.appendChild($ul3); /*append child del DOM */
+    </code></pre>
+  </article>  
+  <article id="Objecte-dom">
+    <h2>Templates en HTml</h2>
+    <p>El template serveix com a emmagatzematge per a plantilles de 
+      markup de HTML. El navegador ignora el seu contingut, només verifica la validesa de la sintaxi, però
+       podem accedir-hi i utilitzar-lo en JavaScript per crear altres elements.
+      en el exemple següent crearem diferents cards amb template :</p>
+    <pre><code class="language-javascript">     
+      const cardContent = [
+      {
+        title: "imatge 8",
+        img: "https://picsum.photos/200/200/?random=8",
+      },
+      {
+        title: "imatge 9",
+        img: "https://picsum.photos/200/200/?random=9",
+      },
+      {
+        title: "imatge 10",
+        img: "https://picsum.photos/200/200/?random=10",
+      },
+      {
+        title: "imatge 11",
+        img: "https://picsum.photos/200/200/?random=11",
+      },
+      {
+        title: "imatge 12",
+        img: "https://picsum.photos/200/200/?random=12",
+      },
+      ];
+      const $fragmentTemplate = document.querySelector("#template-card").content,
+      $fragment2 = document.createDocumentFragment();
+      /*const $cards = document.querySelector(".cards");*/
+      console.log($fragmentTemplate);
+      
+      /*récorrer el fragment template per afegir dinàmicament els continguts*/
+      cardContent.forEach((element) => {
+      $fragmentTemplate.querySelector("img").setAttribute("src", element.img);
+      $fragmentTemplate.querySelector("img").setAttribute("alt", element.title);
+      $fragmentTemplate.querySelector("figcaption").textContent = element.title;
+      /*a l'etiqueta html només hi ha un <template> si utilitzem ja no estara disponible per les següents llavors . La soluciona és clonar el node amb importNode(estructura,boolean)
+      si el valor booleà és :
+      true: clona tota l'estrucardContentctura amb el seu contingut 
+      false: només clonaria l'estructura (template></template>)
+      pero no el contingut */
+      let $clone = document.importNode($fragmentTemplate, true);
+      $fragment2.appendChild($clone);
+      });
+      /*per aplicar els canvis*/
+      /*
+      $cards.appendChild($fragment2);*/
+    </code></pre>
+
+   
+  </article>
+  <article id="Objecte-dom">
+    <h2 id="modificar-elements">I- Modificant elements</h2>
+    <h3 class="titol-contingut" class="estil-classic">Éstil Classic</h3>
+    <p>
+      per modificar elemets (per esborrar o canviar el contingut d'un element) utilitzarem diferents mètodes com:
+      <ul>
+        <li>element.removeChild(posicio del element):per esborrarun fill del element seleccionat</li>
+        <li>element.replaceChild: per fer canvi de un fill</li>
+        <li>element.insertBefore(element,abans d'aquest element): per insertar abans del del elemnt del segon paramétre</li>
+        <li>element.importNode: per clonar un element /*EL FALSE NOMÉS COPIA LA ESTRUCTURA*/
+          /*EL TRUE COPIA TOT EL CONTINGUT DEL ELEMENT SELECIONAT*/</li>
+        <li>element.appendChild</li>
+      </ul>
+    
+     
+      
+    </p>
+    <pre><code class="language-javascript">
+      /*modifcant elements de tipus card
+      utilitzarem la réferencia $cards*/
+      const $newcard = document.createElement("figure");
+      $newcard.innerHTML = `&lt;img
+                  src="https://picsum.photos/200/200/?random=13"
+                  alt="imatge de la "/&gt;
+                &lt;figcaption&gt;imatge6&lt;/figcaption&gt;`;
+      $newcard.classList.add("card"); /*Afegir la clase card*/
+      /*$cards.appendChild($newcard);*/ /*Afegir la card 6 al final de les cards */
+      /* Substituim la tercera card per la new card*/
+      //$cards.replaceChild($newcard, $cards.children[2]);
+      /*inserir la new card abans de la primera card */
+      $cards.insertBefore($newcard, $cards.firstElementChild);
+      
+      //eliminar una card, per exemple la darrera card
+      $cards.removeChild($cards.lastElementChild);
+      //clonar un element i afegir-lo al final de les crds
+      //const $clonecard = document.importNode($cards.lastElementChild,true);
+      //$cards.appendChild($clonecard);
+      /*EL FALSE NOMÉS COPIA LA ESTRUCTURA*/
+      /*EL TRUE COPIA TOT EL CONTINGUT DEL ELEMENT SELECIONAT*/
+      const $clonecard = $cards.cloneNode(false);
+      document.body.appendChild($clonecard);
+    </code></pre>
+    <h3 class="titol-contingut" class="Nou-estil">II- Nou éstil</h3>
+    <p>per modificar elements amb el nou estil hi ha diferents métodes:
+      insertAdjacentElement(posicio,element) (appendchild o insertBefore)
+insertAdjacentHtml(posicio,html) (inner Html)
+insertAdjacentText(posicio,text) (textContent)<br>
+
+
+      
+    </p>
+    <div style="display: flex;">
+      <b>On posició pot ser: </b>
+      <ul>
+        <li>beforeBegin(germà anterior) </li>
+        <li>afterBegin(primer fill)</li>
+        <li>beforeend(darrer dill)</li>
+        <li>afterend(germà següent)</li>
+      </ul>
+      <div><img src="imatges/posicions.png" alt="posicions"/></div>
+     
+
+
+
+
+    </div>
+    
+    <pre><code class="language-javascript">
+      const $newcard7 = document.createElement("figure");
+      $newcard7.innerHTML = `<img
+                  src="https://picsum.photos/200/200/?random=14"
+                  alt="imatge de la "/>
+                <figcaption>imatge7</figcaption>`;
+      $newcard7.classList.add("card");
+      
+      /*innerAdjcentHTML */
+      /*$cards és l'element de réferencia*/
+      $cards.insertAdjacentHTML("beforebegin", $newcard7.outerHTML);
+      
+      $cards.insertAdjacentHTML("afterend", $newcard7.outerHTML);
+      /*primer fill*/
+      $cards.insertAdjacentHTML("afterbegin", $newcard7.outerHTML);
+      /*últim fill*/
+      $cards.insertAdjacentHTML("beforeend", $newcard7.outerHTML);
+      /*insertAdjacentText(posicio,text) */
+      let contentCard = `<img
+                  src="https://picsum.photos/200/200/?random=15"
+                  alt="imatge de la "/>
+                <figcaption></figcaption>`;
+      const $newcard8 = document.createElement("figure");
+      $newcard8.classList.add("card");
+      $newcard8.insertAdjacentHTML("beforeend", contentCard);
+      $newcard8
+        .querySelector("figcaption")
+        .insertAdjacentText("afterbegin", "imatge 15");
+      $cards.insertAdjacentElement("afterbegin", $newcard8);
+      /*afterbegin de l'inertAdjacnText no importa.hi ha un  sol figcaption*/
+      /*podriem posar, per exemple,beforeend i també uncionaria igual */
+      </code></pre>
+   
+  </article>
+
+  <article id="Objecte-dom">
+    <h2 id="gestor-events">Gestor d'events</h2>
+    <h3 class="titol-contingut" id="event">I- Qué és un event en js</h3>
+    <p>Els events són coses que succeeixen al sistema que estàs programant.
+       El sistema s'encarrega de produir un senyal de cert tipus quan un event passa,
+       i proporciona un mecanisme perquè una acció es dugui a terme (executar codi) de manera automàtica quan l'event passi</p>
+    <h3 class="titol-contingut" id="tipus-events">II- Tipus d'events</h3>
+    <h4 class="sub-titols">1-click</h4>
+    <p>Es produeix quan es fa clic en un element amb el ratolí.<br>Exemple: En aquest cas hem utilitzat el ".onclick", però si hi ha més d'una acció que fa l'element, s'hauria de fer amb .addEventListener(event, acció).</p>
+    <pre><code class="language-javascript">
+function holaMon(nom = "desconegut") {
+  alert(`Hola, ${nom} `);
+  console.log(event); 
+}
+const $eventsemantic = document.querySelector("#event-semantic");
+//delegració d'events amb el "."i el nom de l'event i aquest event tindrà una funció que  s'executarà quant es faci clic.
+$eventsemantic.onclick = holaMon; //COMPTE!! va sense paraèntesis
+//alternatives
+//1 amb una una funcio anònima
+$eventsemantic.onclick = function () {
+  alert("Event cridat amb una funció anònima");
+};
+/*2 amb Arrow Function */
+$eventsemantic.onclick = () => alert("Event cridar amb una funció fletxa");
+$eventMultiple.addEventListener(
+  "click",
+  holaMon
+); /*els funcions en event listener sense parentesis */
+$eventMultiple.addEventListener("click", () =>
+  alert("segon handler sobre el click")
+);
+
+    </code></pre>
+    <h4 class="sub-titols">1-double click (dblclick)</h4>
+    <p>Aquest evenet s'activara quant fa el usuari double click sobre el element</p>
+    <pre><code class="language-javascript">$eventMultiple.addEventListener("dblclick", () => alert("doble click ...."));
+
+      const $event_dbl = document.getElementById("event_dbl");
+      $event_dbl.addEventListener("dblclick", () => alert("event-dbl"));</code></pre>
+      <h3 class="titol-contingut" id="removeEvent">III-remove events</h3>
+      <p>Per esborrar un event s'hauria de fer servir removeEventListener. Això només funciona si s'utilitza addEventListener per afegir l'event. La funció ha de ser declarada o expressada, no pot ser anònima.</p>
+      <p>A continuació es mostra un exemple de com afegir i eliminar un event:</p>
+      <pre><code class="language-javascript">
+        const removeEventclick = (e) => {
+          alert(`eleminant l'event ${e.type}`);
+          $btneventremove.removeEventListener("click", removeEventclick);
+          //$btneventremove.disabled = true;
+        };
+        const $btneventremove = document.getElementById("remove_event");
+        $btneventremove.addEventListener("click", removeEventclick);
+        $btneventremove.addEventListener("dblclick", () => alert("double click"));
+      </code></pre>
+      <h4 class="sub-titols">1-altres events</h4>
+      <table class="taula">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Descripció</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+                <td><span class="badge">mouseover</span></td>
+                <td>Activat quan el cursor passa per sobre d'un element.</td>
+            </tr>
+            <tr>
+                <td><span class="badge">mouseout</span></td>
+                <td>Activat quan el cursor surt d'un element.</td>
+            </tr>
+            <tr>
+                <td><span class="badge">keydown</span></td>
+                <td>Activat quan una tecla és premuda.</td>
+            </tr>
+            <tr>
+                <td><span class="badge">keyup</span></td>
+                <td>Activat quan una tecla és alliberada.</td>
+            </tr>
+            <tr>
+                <td><span class="badge">change</span></td>
+                <td>Activat quan el valor d'un element d'entrada canvia.</td>
+            </tr>
+            <tr>
+                <td><span class="badge">submit</span></td>
+                <td>Activat quan s'envia un formulari.</td>
+            </tr>
+            <tr>
+                <td><span class="badge">focus</span></td>
+                <td>Activat quan un element rep el focus.</td>
+            </tr>
+            <tr>
+                <td><span class="badge">blur</span></td>
+                <td>Activat quan un element perd el focus.</td>
+            </tr>
+            <tr>
+                <td><span class="badge">resize</span></td>
+                <td>Activat quan es redimensiona la finestra del navegador.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+  </article>
+  
+  <article id="Objecte-dom">
+    <h2 id="flux-event">Flux events - Bombolla i captura</h2>
+    <p></p>
+    <pre><code class="language-javascript">
+        
+const $divevents = document.querySelectorAll(".flux-events div");
+console.log($divevents);
+function fluxevents(e) {
+  console.log(`hola, soc ${this.className}, orígin ${e.target.className}`);
+  //desactivar els altres clicks només el element que he fet click és el que mostre
+  //e.stopPropagation();
+}
+//assignarem dínamicament listeneres...
+//el true el true els fa de fora per dins i el false del exterior al interior
+//el once lo que fa es fa el click només un vegada i desactiva el event de click
+//capture el ordre de execusió
+/*
+$divevents.forEach((div) =>
+  div.addEventListener("click", fluxevents, {
+    once: true,
+  })
+);*/
+$divevents.forEach((div) => div.addEventListener("click", fluxevents));
+
+const $linkevent = document.querySelector(".flux-events a");
+console.log($linkevent);
+$linkevent.addEventListener("click", (e) => {
+  //alert("has fet click a google");
+  e.preventDefault(); //Cancela l'acció per defete...
+  // e.stopPropagation();
+});
+
+/*delegació d'events al DOM*/
+/*la ides és delegar events a un element pare o superior . a partir d'aqui cal detectar el node o l'element que ha activat l'event i llavors descencadenar la progromació. exemple: En un formulari podríem assignar l'event a nivell de formulari en comptes de fer-ho per cada input Inclús podríem delegar l'event al document. 
+
+
+amb un sol listener al document,detectem l'element que ha descencadenat l'event i actuarem en conseqüència. A més no hi ha propogació perqué l'event és al l'element superior. */
+
+/*ASSIGNACIó DINÀMICA
+la delegació d'events és l'única forma d'assignar events a l'element HTML no estan renderitzats al document .*/
+
+document.addEventListener("click", (e) => {
+  //alert(`event click  capturat al document a  ${e.target.className}`);
+  if (e.target.matches(".flux-events a")) {
+    alert("hem fet click al enllaç de google");
+    e.preventDefault();
+  } else if (e.target.matches(".flux-events div")) {
+    alert(`hem fet click o origin: ${e.target.className}`);
+  } else {
+    alert(`un altre element ${e.target}`);
+  }
+});
+
+    </code></pre>
+
+   
+  </article>
+
+
+
+
+   
+    <template>
+    <article id="Objecte-dom">
+      <h2></h2>
+      <p></p>
+      <pre><code class="language-javascript">
+
+      </code></pre>
+
+     
+    </article>
+  </template>
+    <a href="index.html#index-DOM" class="button">☝🏼</a>
+  </main>
+  
+
+    <footer class="footer">
+      <p class="footer-text">
+        &copy; AISSAM BOUAZAMA 2025 UF3 JS DOM
+      </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages 
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+    --><script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

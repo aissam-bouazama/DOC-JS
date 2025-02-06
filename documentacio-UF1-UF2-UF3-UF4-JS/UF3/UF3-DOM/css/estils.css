@@ -1,10 +1,18 @@
 * {
   box-sizing: border-box;
   margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+ 
 }
 body {
   font-family: "Courier New";
-
+ 
+}
+.Contingut,.menu,hr {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 /*
 .menu{
@@ -15,23 +23,29 @@ body {
   background-attachment: fixed;
 }*/
 
-
-h1,h2 {
+h1,
+h2 {
   text-align: center;
   background-color: #0078d7;
   color: white;
   margin-top: 0;
+  position: sticky;
+  top:0;
+  z-index:998;
 }
 
 .button {
-  padding: 11px 50px;
+  padding:10px 20px;
   background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
-  margin-left: 42%;
   margin-bottom: 8px;
   cursor: pointer;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
 }
 .button:hover {
   background-color: #0078d7;
@@ -51,7 +65,8 @@ pre {
   margin-bottom: 8px;
 }
 
-.badge,.badge-taronja {
+.badge,
+.badge-taronja {
   display: inline-block;
   padding: 2px 10px;
   font-size: 14px;
@@ -98,17 +113,18 @@ li {
   gap: 1px;
 }
 
-.important,.nota{
-  width:100%;
-  padding:15px;
-  position:relative;
-  border-left:8px solid #4480a8;
-  color:#a1a1a1;
-  border-radius:4px;
-  justify-content:center;
-  align-items:center;
-  text-align:left;
-  font-size:16px;
+.important,
+.nota {
+  width: 100%;
+  padding: 15px;
+  position: relative;
+  border-left: 8px solid #4480a8;
+  color: #a1a1a1;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-size: 16px;
   margin-top: 1%;
   background-color: rgb(253, 250, 71);
   text-align: center;
@@ -117,24 +133,45 @@ li {
 .nota {
   background-color: #90c5f0;
   color: rgb(97, 15, 206);
+ 
 }
-.menu-navegacio{
+.menu-navegacio {
   margin-left: 1.5%;
   color: red;
+  
 }
-.sub-llist,.sub-titols{
+.sub-llist,
+.sub-titols {
   color: #45a049;
 }
-.titol-contingut{
+.titol-contingut {
   color: red;
 }
 
 .footer {
-  width:100%;
-  position:relative;
-  display:block;
-  padding:8x;
-  color:#eee;
+  
+  width: 100%;
+  position: relative;
+  display: block;
+  padding: 8px;
+  color: #eee;
   text-align: center;
   background: linear-gradient(#3d50c0, #2b44b4);
+}
+
+
+
+dt {
+  font-weight: bold;
+  font-size: medium;
+}
+
+dl,
+dd {
+  font-size: 0.9rem;
+}
+
+dd {
+  margin-bottom: 1em;
+  margin-left: 0.9rem;
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validació de formularis</title>
+    <link rel="stylesheet" href="CSS/estils.css" />
+  </head>
+  <body>
+    <h1 class="titol-ppal">Validació de formularis</h1>
+    <div class="contact-form-loader none">
+      <img src="imatges/puff.svg" alt="loader carregant...." />
+    </div>
+    <form class="contact-form">
+      <!--legend és el titol del formulari-->
+      <!--el pattern hauria d'estar el required per a qui funcione el pattern sense required no funcione el pattern-->
+      <!--el text area no supporta el Attribut pattern-->
+      <legend class="titol">Envie'ns els teus comentaris</legend>
+      <input
+        type="text"
+        name="nom"
+        id="Escriu el nom"
+        title="Nom només suporta lletres i espais"
+        placeholder="Escriu el nom..."
+        pattern="^[A-Za-zÑñÁáÉéíÍÓóÚúüÜ\s]+$"
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Escriu l'email"
+        title="email incorrecte!"
+        pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+        required
+      />
+
+      <input
+        type="text"
+        name="subject"
+        placeholder="Assumpte  tractar"
+        title="L'Assumpte és Obligatori"
+        required
+      />
+
+      <textarea
+        name="Commentari"
+        rows="5"
+        placeholder="Escriu els Commentaris"
+        title="el commentari no pot tenir més de 255 caràcters"
+        minlength="1"
+        maxlength="10"
+        data-pattern="^.{1,255}$"
+        required
+      ></textarea>
+
+      <input class="submit" type="submit" value="Enviar" />
+
+      <div class="contact-form-response none">
+        <p>Les dades han estat enviades correcta,ent...</p>
+      </div>
+    </form>
+    <script src="JS/script.js"></script>
+  </body>
+</html>

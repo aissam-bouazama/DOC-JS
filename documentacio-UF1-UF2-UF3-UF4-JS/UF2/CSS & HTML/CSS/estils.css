@@ -1,4 +1,11 @@
 @import url("estils2.css");
+/*Reset model de caixa a border-boc*/
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 /*més generics adalt*/
 * {
   font-family: sans-serif;
@@ -293,4 +300,163 @@ blockquote.cita {
 /**initial és del navegador**/
 cite {
   background-color: green;
+}
+
+.content-box {
+  background-color: aqua;
+  border: medium solid black;
+  padding: 10px;
+  width: 400px;
+  height: 300px;
+}
+
+.border-box {
+  box-sizing: border-box;
+  background-color: rgb(91, 179, 32);
+  border: medium solid black;
+  padding: 10px;
+  width: 400px;
+  height: 300px;
+}
+
+.paragraf {
+  border: medium solid black;
+  background-color: aquamarine;
+}
+.span1,
+.span2 {
+  background-color: beige;
+  border: medium solid black;
+  width: 250px;
+  height: 250px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.caixa-none {
+  background-color: rgb(46, 165, 165);
+  display: none;
+}
+.caixa-inlineblock {
+  border: thick solid black;
+  display: inline-block;
+  width: 150px;
+  height: 200px;
+  margin-top: 50px;
+}
+.visibility {
+  background-color: aquamarine;
+  visibility: hidden;
+}
+/*overflow*/
+.overflow {
+  background-color: bisque;
+  width: 100px;
+  height: 100px;
+  overflow: visible;
+  overflow: hidden;
+  overflow: scroll;
+  overflow: auto;
+}
+.container-col-3 {
+  background-color: azure;
+  width: 600px;
+  height: 150px;
+}
+.container-col-3 > * {
+  width: 200px;
+  float: left;
+  border: thin solid black;
+}
+
+.colapse {
+  background-color: aqua;
+}
+/*margin verticals de colapsen i els horizontals se sumen*/
+.colapse > section {
+  border: thin solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.colapse span {
+  border: thin solid black;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.site-web {
+  border: thin solid black;
+  background-color: aquamarine;
+  width: 800px;
+  height: 800px;
+  padding: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*posionament static*/
+.static {
+  background-color: bisque;
+  top: 100px;
+  left: 100px;
+  position: static;
+}
+/*posicionament relative*/
+.relative {
+  background-color: cyan;
+  position: relative;
+  top: -40px;
+  left: -55px;
+  width: 200px;
+  height: 100px;
+}
+/*posicionament absoluta*/
+.absolute {
+  background-color: blueviolet;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.relative-parent {
+  background-color: aquamarine;
+  position: relative;
+}
+.absolute-child {
+  background-color: antiquewhite;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/*poscionament fixed*/
+.caixa-fix {
+  background-color: burlywood;
+  position: fixed;
+  width: 100px;
+  /*left: 30px;*/
+
+  right: 20px;
+  bottom: 30px;
+  height: 20px;
+}
+/*posicionament Sticky*/
+.sticky {
+  background-color: chartreuse;
+  position: sticky;
+  top: 0;
+  height: 50px;
+  padding: 20px;
+}
+.sticky2 {
+  background: blue;
+  position: sticky;
+  top: 50px;
+  height: 30px;
+  text-align: center;
+}
+/*per a que funcione el */
+.contenidor-sticky2 {
+  width: 400px;
+  height: 800px;
 }

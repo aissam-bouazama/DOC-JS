@@ -199,7 +199,7 @@ $img.setAttribute("alt", "random6");
 $img.setAttribute("src", "https://picsum.photos/200/200/?random=6");
 $figcaption.appendChild($figcaptionText);
 //crear elements
-$cards.appendChild($figure).appendChild($img);
+//$cards.appendChild($figure).appendChild($img);
 $figure.appendChild($figcaption);
 //Afegir class a figure
 $figure.classList.add("card");
@@ -210,7 +210,7 @@ $figure2.innerHTML = ` <img
           />
           <figcaption>imatge7</figcaption>`;
 $figure2.classList.add("card");
-$cards.appendChild($figure2);
+//$cards.appendChild($figure2);
 
 /*qué pass si volem molts nodes de cop */
 //cada cop que fem un appendchild té un cost considerable al document HTM.
@@ -220,6 +220,7 @@ $cards.appendChild($figure2);
 //primera opcio opció no optimizada
 const estacion = ["Primavera", "estiu", "Hivern", "tardor"];
 const $ul = document.createElement("ul");
+$ul.setAttribute("id", "estacions");
 document.write("<h3> Estacions de l'any </h3>");
 document.body.appendChild($ul);
 estacion.forEach((el) => {
@@ -231,6 +232,7 @@ estacion.forEach((el) => {
 //SEGONA OPCIÓ NO OPTIMIZADA
 const continents = ["Àfrica", "Europa", "Amèrica", "Ocenaia", "assia"];
 const $ul2 = document.createElement("ul");
+$ul2.setAttribute("id", "continents");	
 document.write("<h3> Continents del mon</h3>");
 document.body.appendChild($ul2);
 $ul2.innerHTML = "";
@@ -249,16 +251,139 @@ const mesos = [
   "setembre",
   "octubre",
   "novembre",
+  "desembre",
 ];
-
-const $element = document.getElementById("ul"); // assuming ul exists
-var fragment = document.createDocumentFragment();
-var browsers = ["Firefox", "Chrome", "Opera", "Safari", "Internet Explorer"];
-
-browsers.forEach(function (browser) {
-  var li = document.createElement("li");
-  li.textContent = browser;
-  fragment.appendChild(li);
+const $ul3 = document.createElement("ul"),
+  $fragment = document.createDocumentFragment();
+  $ul3.setAttribute("id", "mesos");
+/*no podem utilitzar innerHTMl en fragments! (els fragments són nodes)*/
+mesos.forEach((element) => {
+  const $li = document.createElement("li");
+  $li.textContent = element;
+  $fragment.appendChild($li);
 });
+document.write("<h3>MESOS DE L'ANY</h3>");
+$ul3.appendChild($fragment);
+document.body.appendChild($ul3); /*append child del DOM */
 
-$element.appendChild(fragment);
+/*template HTML */
+/*el content agafa el contingut de la estructura
+pero amb el query selector seleciona tot el element template en contraridel content 
+const $fragmentTemplate = document.querySelector("#template-card").content;
+const $fragmentTemplate = document.querySelector("#template-card");
+*/
+const cardContent = [
+  {
+    title: "imatge 8",
+    img: "https://picsum.photos/200/200/?random=8",
+  },
+  {
+    title: "imatge 9",
+    img: "https://picsum.photos/200/200/?random=9",
+  },
+  {
+    title: "imatge 10",
+    img: "https://picsum.photos/200/200/?random=10",
+  },
+  {
+    title: "imatge 11",
+    img: "https://picsum.photos/200/200/?random=11",
+  },
+  {
+    title: "imatge 12",
+    img: "https://picsum.photos/200/200/?random=12",
+  },
+];
+const $fragmentTemplate = document.querySelector("#template-card").content,
+  $fragment2 = document.createDocumentFragment();
+/*const $cards = document.querySelector(".cards");*/
+
+console.log($fragmentTemplate);
+
+/*récorrer el fragment template per afegir dinàmicament els continguts*/
+
+cardContent.forEach((element) => {
+  $fragmentTemplate.querySelector("img").setAttribute("src", element.img);
+  $fragmentTemplate.querySelector("img").setAttribute("alt", element.title);
+  $fragmentTemplate.querySelector("figcaption").textContent = element.title;
+  /*a l'etiqueta html només hi ha un <template> si utilitzem ja no estara disponible per les següents llavors . La soluciona és clonar el node amb importNode(estructura,boolean)
+  si el valor booleà és :
+  true: clona tota l'estrucardContentctura amb el seu contingut 
+  false: només clonaria l'estructura (<template></template>)
+  pero no el contingut */
+  let $clone = document.importNode($fragmentTemplate, true);
+  $fragment2.appendChild($clone);
+});
+/*hem comentat el canvi */
+/*
+$cards.appendChild($fragment2);
+*/
+
+/*modifcant elements de tipus card
+utilitzarem la réferencia $cards*/
+const $newcard = document.createElement("figure");
+$newcard.innerHTML = `<img
+            src="https://picsum.photos/200/200/?random=13"
+            alt="imatge de la "/>
+          <figcaption>imatge6</figcaption>`;
+$newcard.classList.add("card"); /*Afegir la clase card*/
+/*$cards.appendChild($newcard);*/ /*Afegir la card 6 al final de les cards */
+/* Substituim la tercera card per la new card*/
+//$cards.replaceChild($newcard, $cards.children[2]);
+/*inserir la new card abans de la primera card */
+$cards.insertBefore($newcard, $cards.firstElementChild);
+
+//eliminar una card, per exemple la darrera card
+$cards.removeChild($cards.lastElementChild);
+//clonar un element i afegir-lo al final de les crds
+//const $clonecard = document.importNode($cards.lastElementChild,true);
+//$cards.appendChild($clonecard);
+/*EL FALSE NOMÉS COPIA LA ESTRUCTURA*/
+/*EL TRUE COPIA TOT EL CONTINGUT DEL ELEMENT SELECIONAT*/
+const $clonecard = $cards.cloneNode(false);
+document.body.appendChild($clonecard);
+
+/*Modificant elements de tipus card amb els nous mètodes*/
+/*
+insertAdjacentElement(posicio,element) (appendchild o insertBefore)
+insertAdjacentHtml(posicio,html) (inner Html)
+insertAdjacentText(posicio,text) (textContent)
+*/
+/*On posició pot ser: 
+beforeBegin(germà anterior) 
+afterBegin(primer fill)
+beforeend(darrer dill)
+afterend(germà següent)
+*/
+/*exemples:*/
+
+const $newcard7 = document.createElement("figure");
+$newcard7.innerHTML = `<img
+            src="https://picsum.photos/200/200/?random=14"
+            alt="imatge de la "/>
+          <figcaption>imatge7</figcaption>`;
+$newcard7.classList.add("card");
+
+/*innerAdjcentHTML */
+/*$cards és l'element de réferencia*/
+$cards.insertAdjacentHTML("beforebegin", $newcard7.outerHTML);
+
+$cards.insertAdjacentHTML("afterend", $newcard7.outerHTML);
+/*primer fill*/
+$cards.insertAdjacentHTML("afterbegin", $newcard7.outerHTML);
+/*últim fill*/
+$cards.insertAdjacentHTML("beforeend", $newcard7.outerHTML);
+/*insertAdjacentText(posicio,text) */
+let contentCard = `<img
+            src="https://picsum.photos/200/200/?random=15"
+            alt="imatge de la "/>
+          <figcaption></figcaption>`;
+const $newcard8 = document.createElement("figure");
+$newcard8.classList.add("card");
+$newcard8.insertAdjacentHTML("beforeend", contentCard);
+$newcard8
+  .querySelector("figcaption")
+  .insertAdjacentText("afterbegin", "imatge 15");
+$cards.insertAdjacentElement("afterbegin", $newcard8);
+/*afterbegin de l'inertAdjacnText no importa.hi ha un  sol figcaption*/
+/*podriem posar, per exemple,beforeend i també uncionaria igual */

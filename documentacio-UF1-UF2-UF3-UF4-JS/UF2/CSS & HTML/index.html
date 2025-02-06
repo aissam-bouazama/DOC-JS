@@ -322,16 +322,244 @@
     <article id="model-de-caixa">
       <h2>Model de Caixa</h2>
       <p>És la forma en que CSS interpreta les tiquetes HTML. Per a CSS cada una de les etiquetes html és una caixa</p>
-       <a href="index.html#index-css"> ☝🏼tornar-index</a>
+      <div class="content-box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum repudiandae officiis minima sunt aperiam, fugit dolore cupiditate ratione quia consequatur, porro a? Quo nihil vitae quibusdam quaerat unde aliquid. Placeat?</div> 
+      
+      <p>Tipus de caixes</p>
+      <ul>
+        <li>En línia(elements del formulari,span,i,b....)</li>
+        <li>En Block(div,totes els tags semàntics (nav,main,article,section,header,footer,.....))</li>
+      </ul>
+      <h3>Les Caixes En Block</h3>
+      <p>es comporten de la següent forma:
+        <h3>Les caixes en Block</h3>
+      <p>Es comporten de la següent forma:
+        <ul>
+          <li>La caixa ocupa tota la línia i força un salt de línia al final</li>
+          <li>La caixa s'exten en la direcció de la línia fins al final. Generalment significa que la caixa tindrà l'amplada del seu contenidor (per exemple el body) i omplirà el 100% de l'espai disponible</li>
+          <li>Es respecten les propietats width i heigth</li>
+          <li>El padding, el border i el marge (aquest darrer manté allunyats de la caixa la resta d'elements) s'apliquen </li>
+        </ul>
+      </p>
+      <h3>Les Caixes en Línia</h3>
+      <p>Les Caixes en Línea s comporten de la següent forma:</p>
+      <ul>
+        <li>La Caixa només ocupa l'espai que ocupa el seguent contigut i no força cap salt de línia 
+        </li>
+        <li>Les propietats width i height <b>NO </b>s'apliquen </li>
+        <li>El padding, el border i el margin  <b>Verticals</b>s'apliquen però <b>NO</b> mantenen allunyades altres caixes en línia  </li>
+        <li>el padding , el border i el margin <b>Horizontals</b> s'apliquen i mantenen altres caixes en línia</li>
+      </ul>
+      <p class="paragraf">Estem cursant el modul <span class="span1">M6 Aplicacions web EN ENTORN-CLIENT</span> forma part del cicle <span class="span2">Desenvoulopament d'aplicacions WEB</span> de l'Institut <b class="">Almatà</b> de balaguer</p>
+
+
+      <h3>La Propietat display</h3>
+      <p>Aquesta Propietat ens permet les caixes i quin comportament CSS aplica per visualitzar els elements valors que pot prendre
+        <ol>
+          <li>none</li>
+          <li>inline</li>
+          <li>block</li>
+        
+          <li>inline-block</li>
+          <li>table</li>
+          <li>table-cell</li>
+          <li>table-row</li>
+          <li>flex</li>
+          <li>inline-flex</li>
+          <li>grid</li>
+          <li>inline-grid</li>
+          <li>list-item</li>
+        </ol> </p>
+        <h3>display:none</h3>
+        <p>D'utilitza per mostrar/ocultar elements html.Per exemple:missatges d'error d'un formulari.
+          <ul>
+            <li> no reserva el espai del element quan esta ocult</li>
+            <li> carregarà igualment el contingut</li>
+          </ul> </p>
+        <div class="caixa-none"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem adipisci eius, maiores corporis labore, laboriosam quam natus odit ullam possimus architecto dolorem minus placeat. Repudiandae consequuntur vitae cupiditate maxime?</p></div>
+        <h3>Display:inline-block</h3>
+        <p>és comporta com un element inline péro que a més accepta <b>width i height</b></p>
+        <div class="caixa-inlineblock"><p>és una caixa inline-block</p></div>
+        <br><br>
+        <table border="1px">
+          <tr>
+            <td>cel.la 1</td>
+            <td>cel.la 2</td>
+            <td>cel.la 3</td>
+          </tr>
+          <tr>
+            <td>cel.la 1</td>
+            <td>cel.la 2</td>
+            <td>cel.la 3</td>
+          </tr>
+          <tr>
+            <td>cel.la 1</td>
+            <td>cel.la 2</td>
+            <td>cel.la 3</td>
+          </tr>
+          <tr>
+            <td>cel.la 1</td>
+            <td>cel.la 2</td>
+            <td>cel.la 3</td>
+          </tr>
+          <tr>
+            <td>cel.la 1</td>
+            <td>cel.la 2</td>
+            <td>cel.la 3</td>
+          </tr>
+        </table>
+        <hr>
+        <h3> propietat visibility</h3>
+        <p>la popietat visibility té dos possibles valors
+          </p> <ol>
+            <li>hidden</li>
+            <li>visible</li>
+            
+          </ol><p>no Confondré amb display :none. visibilty desapareix el contingut ,però,queda lespai que ocupava el contingut </p>
+          <div class="visibility">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab architecto blanditiis perferendis autem iusto harum accusantium ipsam sequi temporibus impedit quae obcaecati odit optio ut unde veniam, reprehenderit pariatur necessitatibus?</div>
+       
+
+      <a href="index.html#index-css"> ☝🏼tornar-index</a>
+    </article>
+<hr>
+    <article>
+      <h3>La propietat Overflow  (desbordament del contingut)</h3>
+      <p>Qué passara amb el contingut que desbordi la seva caixa contenidora?</p>
+      <p>Descidirem com actuar amb un dels possibles tres valors:</p>
+      <ul>
+        <li>visible</li>
+        <li>hidden</li>
+        <li>scroll</li>
+      </ul>
+
+      <div class="overflow">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eaque culpa vitae qui. Officia voluptate pariatur possimus non saepe, reiciendis harum asperiores fugiat ipsa nulla sed dicta at quibusdam aliquam.
+      </div>
+     
+      
+      
+      <a href="index.html#index-css"> ☝🏼tornar-index</a>
     </article>
 
-<br><br><br><br><br><br><br><br><br><br>
+ <hr>
+    <article>
+      <h3>Exemples de maquetació en tres columnes (old)</h3>
+      <article class="container-col-3">
+        <section class="item">secció 1</section>
+        <section class="item">secció 2</section>
+        <section class="item">secció 3</section>
+      </article>
+      <a href="index.html#index-css"> ☝🏼tornar-index</a>
+
+
+
+       <hr>
+        <h3>Col.lapse de marges</h3>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas eum atque tenetur quibusdam distinctio voluptate id impedit. Corrupti at pariatur alias labore! Veritatis dolores perferendis aliquid beatae quaerat consequuntur consectetur.</div>
+    <article class="colapse">
+        <section class="item">secció 1</section>
+        <section class="item">secció 2</section>
+        <section>
+          <span>span 1</span>
+          <span>span 2</span>
+          <span>span 3</span>
+        </section>
+    </article>
+       <a href="index.html#index-css"> ☝🏼tornar-index</a>
+
+
+    
+    <hr>
+    
+      <h2>Centrar Caixes</h2>
+      <p>No confondre amb centrar de contingut</p>
+     
+       <article class="site-web">
+        <header>capçalera</header>
+        <main>Contingut de la página</main>
+        <footer>Peu de la página</footer>
+       </article>
+    
+      <a href="index.html#index-css"> ☝🏼tornar-index</a>
+
+      <p>Les Propietats Float I POSITION ens permeten modificar la posicio de qualsevol element HTML</p>
+      <p>El l navegador posiciona cada element en compte l'ordre en el que apareixen al document (esquerra a dreta i dalt a baix) i del seu tipus de visualització depenent de si és un element en línia o en bloc</p>
+      <p>amb FLOAT i POSITION podem modificar aquest comportament </p>
+      <h3>tIPUS DE POSICIONAMENT</h3>
+      <ul>
+        <li>static (default)</li>
+        <li>relative</li>
+        <li>absolute</li>
+        <li>fixed</li>
+        <li>sticky</li>
+      </ul>
+      <p><b>Per moure i posicionar els elements</b> (amb relative,absolute,fixed o sticky)utilitzarem les propietats:</p>
+      <ul>
+        <li>top(vertical, eix Y)</li>
+        <li>bottom (vertical, eix Y)</li>
+        <li>left (horizontal, eix x)</li>
+        <li>right (horizontal ,eix x)</li>
+        <li>z-index (profunditat, eix z)</li>
+      </ul>
+      <p>Auestes 5 propietats <b>no funcionen </b>amb el valor per defecte static !perqué static significa el flux original del posicionament dels elements</p>
+      <p>les propietats <b> Top i left</b> tenen prioritat respecte bottom i right respectivament. En cas de conflicting entre aplicar top o bttom , s'aplicara top, i en el cas de conflicting entre aplicar left o right s'aplicara left</p>
+      <h3> Posicionament static</h3>
+      <p>En aquest posicionament no sapliquen left right bottom top i z-index</p>
+
+      
+      <h3>Posicionament relative</h3>
+      <p>aquest Posicionamentl'element <b>conserva les dimensions i el posicionament original</b>el flux del document.Si es mou pren com a referencia la seva posició original</p>
+   
+      <div class="static">
+        Caixa éstatica
+      </div>
+      <div class="relative">
+        Caixa relativa
+      </div>
+        <div class="absolute">
+                Caixa absoluta
+      </div>
+      <h3>Posicionament absolute</h3>
+      <p>posicion absolut perd les seves dimensions (width i height) i posicio original al flux del document si és mou com a éferencia dos elements</p>
+      <ul>
+        <li>el primer ancestre amb posionament relatiu</li>
+        <li>Si no troba cap ancestre amb posicionament relatiu es mou respecte el document HTML</li>
+      </ul>
+    
+
+       <div class="relative-parent">
+         <div class="absolute-child">
+                Caixa absoluta amb pare i abcestre relatiu
+      </div>
+      </div><br><br>
+
+      <h3> posicionament Fixed</h3>
+      <p> perd les dimensions i posicio original del flux del document si és mou prent com a réferencia el document HTML i queda fix a la pósicio on l0hem mogut,Quan hi hagi un scroll l'element no és mourà,quedarà fix</p>
+      <div class="caixa-fix">Caixa fix</div>
+
+      <h3>Posicionament Sticky o enganxifós</h3>
+      <p>És una combinacio de posicionament relatiu i fixed.en aquest posicionament les propietats top,left,bottom i right no muen el element, en comptes de moure'l serveixen com a punt de réferencia mentre l'element no arribe als valors establerts . mentre no s'arribé a les posicions establertes l'element és comportara com a relatiu i quan arrbi a les posicions es convitira en fixed</p>
+      <p>Hi ha dues opcions d'implementació:</p>
+      <ul>
+        <li>l'element esticky: hi ha de ser fil directe del body </li>
+        <li>el seu élement contenidor hi ha de ténir dimensions difinides i només será sticky dins d'aquestes dimensions del contenidor</li>
+      </ul>
+     </article>
+
+ <div class="sticky">Caixa enganxifósa</div>
+<article class="contenidor-sticky2">
+<div class="sticky2">Caixa enganxifósa</div>
+</article>
+  
+  
+ <a href="index.html#index-css"> ☝🏼</a>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
     <br><br><br><br><br>
     <hr>
     <article id="Algorithm-CSS">
-      <h2>Algorithm CSS</h2>
+      <h2></h2>
       <p></p>
        <a href="index.html#index-css"> ☝🏼tornar-index</a>
     </article>

@@ -1,0 +1,90 @@
+/**RESET CSS**/
+:root {
+  --main-font: sans-serif;
+  --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
+  --container-width: 1200px;
+  --form-ok-color: #38b138;
+  --formko-color: rgb(235, 97, 97);
+}
+/*reset css
+*/
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+.contact-form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.contact-form > * {
+  display: block;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  width: 100%;
+}
+.contact-form textarea {
+  resize: none;
+}
+.titol,
+.titol-ppal {
+  text-align: center;
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+}
+.contact-form input[type="submit"] {
+  width: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+/*Aquest estil ha de estar Just abans de aplicar estil none altrament queda anula.lat l'estil none en aplicar-se el canvi de display a flex
+*/
+.contact-form-loader {
+  display: flex;
+  justify-content: center;
+}
+.none {
+  display: none;
+}
+.contact-form [required]:valid {
+  border: thin solid var(--form-ok-color);
+}
+.contact-form [required]:invalid {
+  border: thin solid var(--formko-color);
+}
+
+.contact-form-error {
+  background-color: var(--formko-color);
+  color: white;
+  font-size: 80%;
+}
+
+.contact-form-error.is-active {
+  display: block;
+  animation: show-message 1s 1 normal 0s ease-out both;
+}
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}

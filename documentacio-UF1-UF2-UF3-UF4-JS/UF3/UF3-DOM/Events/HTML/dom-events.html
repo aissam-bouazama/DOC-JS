@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestió d'Events</title>
+    <link rel="stylesheet" href="../CSS/estils.css" />
+  </head>
+  <body>
+    <h1>Gestió d'Events</h1>
+    <h3>Primer Forma de gestionar events : Com atributs HTML</h3>
+
+    <button onclick="alert('Events com funcionannt...')">
+      Event Com Atribut HTML
+    </button>
+
+    <button onclick="holaMon()">
+      Event Com Atribut HTML cridant una funció
+    </button>
+    <button id="event-semantic">Event amb Gestor semàntic</button>
+    <button id="event-multiple">Event amb Gestor Multiple</button>
+    <button id="event_dbl">Event amb Gestor Multiple click 1 i click2</button>
+    <button id="remove_event">esborrar un event</button>
+    <br />
+    <br />
+    <br />
+    <h3>flux events</h2>
+      <p>La propagació d'events es dona per defecte des de dins, l'element html més intern, cap a fora i s'anomena <b>Bombolla</b> tots els elements que tinguin el mateix <i>event</i> si formen part del flux o bombolla mateix arbre  DOM de l'element que origin <i>event</i> </p>
+    <section class="flux-events">
+      <div class="un">
+        1
+        <div class="dos">
+          2
+          <div class="tres">3
+            <a href="https://www.google.es" target="_blank" rel="noopener">Google</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br />
+
+    <script src="../JS/events-dom.js"></script>
+  </body>
+</html>
